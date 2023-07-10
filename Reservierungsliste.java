@@ -36,6 +36,8 @@ public class Reservierungsliste {
     }
 
     public boolean istReserviert(Date datum){
+        // Lieber Kim, hier fehlt dein Code ;-)
+
         return false;
     }
 
