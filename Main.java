@@ -1,6 +1,5 @@
 public class Main {
 
     public static void main(String[] args) {}
-
-    //Klaptt's endlich?
-}
+//Test zwo: Bitte Hurra rufen
+   }
