@@ -22,4 +22,9 @@ public class Endknoten implements Knoten
     public Knoten gibNaechster() {
         return null;
     }
+
+    @Override
+    public boolean istReserviert(Date datum) {
+        return false;
+    }
 }

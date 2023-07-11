@@ -13,8 +13,7 @@ public class Reservierung
         this.koffer = koffer;
     }
 
-    public Date gibDatum()
-    {
+    public Date gibDatum(){
         return datum;
     }
 

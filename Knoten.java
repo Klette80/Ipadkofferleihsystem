@@ -6,4 +6,7 @@ public interface Knoten
     public void stornieren(Date datum, Koffer koffer);
     public Reservierung gibData();
     public Knoten gibNaechster();
+
+    public boolean istReserviert(Date datum);
 }
+
