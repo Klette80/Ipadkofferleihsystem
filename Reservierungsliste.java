@@ -3,14 +3,12 @@ import java.util.Date;
 public class Reservierungsliste {
     private Knoten root;
     private Koffer[] kofferliste;
-    private int anzahlKoffer;
 
     public Reservierungsliste() {
         root = new Endknoten();
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[100];
         kofferliste[1] = koffer;
-        anzahlKoffer = 1;
     }
 
     public void reservieren(Date datum, String name, Koffer koffer) {
