@@ -33,6 +33,18 @@ public class Main {
         System.out.println("Erwartete Meldung: An diesem Datum liegt schon eine Reservierung vor.");
         reservierungsliste.reservieren(testdatum, "Max Mustermann", koffer);
 
+        // Methode stornieren ausführen.
+        reservierungsliste.stornieren(testdatum, koffer);
+        System.out.println("Test 5: Überprüfen, ob die Reservierung storniert werden kann.");
+        System.out.println("Erwartete Meldung: Stornierung erfolgreich.");
+
+        // Methode istReserviert ausführen
+        if (reservierungsliste.istReserviert(testdatum)) {
+            System.out.println("Stornierung fehlgeschlagen");
+        } else {
+            System.out.println("Stornierung erfolgreich.");
+        }
+
 
 
 
