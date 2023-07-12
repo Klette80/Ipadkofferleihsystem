@@ -11,16 +11,18 @@ public class Reservierungsliste {
         kofferliste[1] = koffer;
     }
 
+    //Einen iPad-Koffer reservieren
     public void reservieren(Date datum, String name, Koffer koffer) {
         //Prüfe, ob schon eine Reservierung vorliegt
         if (istReserviert(datum) == false) {
             Reservierung reservierung = new Reservierung(datum, name, koffer);
-            root = root.einfuegen(reservierung);
+            root = root.reservieren(reservierung);
         } else {
             System.out.println("An diesem Datum liegt schon eine Reservierung vor");
         }
     }
 
+    //Eine vorhandene iPad-Koffer Reservierung stornieren
     public void stornieren(Date datum, Koffer koffer) {
         //Prüfe, ob zu löschender Datensatz root ist
         if (root.gibData().gibDatum() == datum) {

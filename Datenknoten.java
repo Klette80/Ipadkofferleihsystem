@@ -9,11 +9,11 @@ public class Datenknoten implements Knoten {
         data = inhalt;
     }
 
-    public Knoten einfuegen(Reservierung reservierung) {
+    public Knoten reservieren(Reservierung reservierung) {
         //Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
         //wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
         if (reservierung.datum.compareTo(data.datum) > 0) {
-            naechster = naechster.einfuegen(reservierung);
+            naechster = naechster.reservieren(reservierung);
             return this;
         }
         if (reservierung.datum.compareTo(data.datum) < 0) {

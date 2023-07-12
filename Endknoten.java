@@ -7,7 +7,7 @@ public class Endknoten implements Knoten
 
     }
 
-    public Knoten einfuegen(Reservierung reservierung) {
+    public Knoten reservieren(Reservierung reservierung) {
         return new Datenknoten(this, reservierung);
     }
 
