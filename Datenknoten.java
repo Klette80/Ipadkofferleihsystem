@@ -46,7 +46,7 @@ public class Datenknoten implements Knoten {
 
     @Override
     public boolean istReserviert(Date datum) {
-        if (data.gibDatum() == datum) {
+        if (data.gibDatum().compareTo(datum) == 0) {
             return true;
         } else {
             naechster.istReserviert(datum);
