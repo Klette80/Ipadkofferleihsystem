@@ -28,6 +28,13 @@ public class Main {
             System.out.println("Test fehlgeschlagen.");
         }
 
+        // Methode reservieren mit dem gleichen Datum noch einmal ausführen.
+        System.out.println("Test 4: Überprüfen, ob Reservierung mit den selben Daten aus Test 3 möglich ist.");
+        System.out.println("Erwartete Meldung: An diesem Datum liegt schon eine Reservierung vor.");
+        reservierungsliste.reservieren(testdatum, "Max Mustermann", koffer);
+
+
+
 
     }
 
