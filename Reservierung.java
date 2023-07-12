@@ -17,10 +17,6 @@ public class Reservierung
         return datum;
     }
 
-    public void setzeDatum(Date datum) {
-        this.datum = datum;
-    }
-
     public String gibName() {
         return name;
     }

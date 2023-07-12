@@ -15,7 +15,7 @@ public class Endknoten implements Knoten
         System.out.println("Die Reservierung wurde nicht gefunden");
     }
 
-    public Reservierung gibData() {
+    public Reservierung gibDaten() {
         return null;
     }
 

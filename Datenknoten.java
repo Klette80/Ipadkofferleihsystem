@@ -2,25 +2,25 @@ import java.util.Date;
 
 public class Datenknoten implements Knoten {
     private Knoten naechster;
-    private Reservierung data;
+    private Reservierung daten;
 
-    public Datenknoten(Knoten next, Reservierung inhalt) {
-        naechster = next;
-        data = inhalt;
+    public Datenknoten(Knoten naechster, Reservierung inhalt) {
+        this.naechster = naechster;
+        daten = inhalt;
     }
 
     public Knoten reservieren(Reservierung reservierung) {
         //Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
         //wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
-        if (reservierung.datum.compareTo(data.datum) > 0) {
+        if (reservierung.datum.compareTo(daten.datum) > 0) {
             naechster = naechster.reservieren(reservierung);
             return this;
         }
-        if (reservierung.datum.compareTo(data.datum) < 0) {
+        if (reservierung.datum.compareTo(daten.datum) < 0) {
             //Wenn das data Datum NACH inhalt-Datum ist: Erzeuge neuen Datenknoten mit "altem Inhalt", verzeigere neu und fülle den alten Knoten mit neuem Inhalt
-            Datenknoten neu = new Datenknoten(naechster, data);
+            Datenknoten neu = new Datenknoten(naechster, daten);
             this.naechster = neu;
-            this.data = reservierung;
+            this.daten = reservierung;
         }
         return this;
     }
@@ -28,16 +28,16 @@ public class Datenknoten implements Knoten {
     public void stornieren(Date datum, Koffer koffer) {
         //Wenn das Datum und der Koffer vom Nächster der gesuchte Datensatz ist --> verzeigere um,
         //sonst führe die Methode stonieren auf dem Nächsten auf.
-        if ((naechster.gibData() != null && naechster.gibData().gibDatum() == datum && naechster.gibData().gibKoffer() == koffer)) {
-            System.out.println("Die Reservierung von " + naechster.gibData().gibName() + " am " + naechster.gibData().gibDatum() + " wurde gelöscht.");
+        if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum() == datum && naechster.gibDaten().gibKoffer() == koffer)) {
+            System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
         } else {
             naechster.stornieren(datum, koffer);
         }
     }
 
-    public Reservierung gibData() {
-        return data;
+    public Reservierung gibDaten() {
+        return daten;
     }
 
     public Knoten gibNaechster() {
@@ -46,7 +46,7 @@ public class Datenknoten implements Knoten {
 
     @Override
     public boolean istReserviert(Date datum) {
-        if (data.gibDatum().compareTo(datum) == 0) {
+        if (daten.gibDatum().compareTo(datum) == 0) {
             return true;
         } else {
             naechster.istReserviert(datum);
