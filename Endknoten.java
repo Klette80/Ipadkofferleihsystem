@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Date;
 
-public class Endknoten implements Knoten
+public class Endknoten implements Knoten, Serializable
 {
     public Endknoten()
     {

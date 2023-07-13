@@ -1,8 +1,11 @@
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.Date;
 
-public class Reservierungsliste {
+public class Reservierungsliste implements Serializable {
     private Knoten root;
     private Koffer[] kofferliste;
+    private Array[] speicherArray;
 
     public Reservierungsliste() {
         root = new Endknoten();

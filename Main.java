@@ -1,9 +1,14 @@
+import java.io.IOException;
 import java.util.*;
 
 public class Main {
 
 
     public static void main(String[] args) {
+        try {
+            KompositumSerializer ks = new KompositumSerializer();
+
+        // Initialisieren der Reservierungsliste
         Reservierungsliste reservierungsliste = new Reservierungsliste();
 
         //Test geht hier los
@@ -16,7 +21,7 @@ public class Main {
         reservierungsliste.reservieren(testdatum, "Max Mustermann", koffer);
         System.out.println("");
 
-        System.out.println("Test 2: Überprüfen, ob Reservierung mit den Daten '2023-11-11, Max Mustermann, Koffer 0' vorliegt.");
+        System.out.println("Test 2: Überprüfen, ob Reservierung mit dem aktuellen Datum, Max Mustermann, Koffer 0' vorliegt.");
         // Methode istReserviert ausführen
         if (reservierungsliste.istReserviert(testdatum)) {
             System.out.println("Test erfolgreich");
@@ -32,6 +37,9 @@ public class Main {
         reservierungsliste.reservieren(testdatum, "Max Mustermann", koffer);
         System.out.println("");
 
+        // Speichere Reservierungsliste...
+            ks.speichern(reservierungsliste);
+
         // Methode stornieren ausführen.
         System.out.println("Test 4: Überprüfen, ob die Reservierung storniert werden kann.");
         System.out.println("Erwartete Meldung: Stornierung erfolgreich.");
@@ -45,7 +53,25 @@ public class Main {
             System.out.println("Stornierung erfolgreich.");
         }
 
+            // Laden der Reservierungsliste
+            Reservierungsliste geladeneListe = ks.laden();
 
+            System.out.println("");
+
+            System.out.println("Test 5: Überprüfen, ob Reservierung mit dem aktuellen Datum, Max Mustermann, Koffer 0 vorliegt.");
+            System.out.println("Erwartete Meldung: Test erfolgreich");
+            // Methode istReserviert ausführen
+            if (geladeneListe.istReserviert(testdatum)) {
+                System.out.println("Test erfolgreich");
+            } else {
+                System.out.println("Test fehlgeschlagen.");
+            }
+            System.out.println("");
+
+    }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
 
     }

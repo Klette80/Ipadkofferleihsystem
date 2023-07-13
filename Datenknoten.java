@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Date;
 
-public class Datenknoten implements Knoten {
+public class Datenknoten implements Knoten, Serializable {
     private Knoten naechster;
     private Reservierung daten;
 
