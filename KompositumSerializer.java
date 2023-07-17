@@ -5,27 +5,56 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 
 public class KompositumSerializer {
-    private FileOutputStream filestream;
-    private ObjectOutputStream os;
 
-    public KompositumSerializer() throws IOException {
-        try {
-            filestream = new FileOutputStream("GespeicherteListe.ser");
-            os = new ObjectOutputStream(filestream);
-        } catch (IOException e) {
-            throw new IOException("Fehler beim Erstellen der Datei", e);
-        }
-    }
+    public KompositumSerializer() {}
 
     public void speichern(Reservierungsliste l) throws IOException {
-        os.writeObject(l);
-        os.close();
+        // Diese Methode serialisiert eine übergebene Reservierungsliste.
+        // Die Methode muss einen möglichen kritischen Fehler beim Erstellen der Datei für die
+        // Reservierungsliste abfangen können.
+        try {
+            // Versuche, einen Anschlusstream zu erstellen, der eine Datei zum Speichern der Daten
+            // erstellt.
+            FileOutputStream dateiAusgabe = new FileOutputStream("GespeicherteListe.ser");
+            // Versuche, Objektausgabe mit dem Dateiausgabenfluss zu verketten.
+            ObjectOutputStream objektAusgabe = new ObjectOutputStream(dateiAusgabe);
+
+            // Der Objekctoutputstream (Objektausgabe) schreibt das übergebene Objekt in den filestream (Dateiausgabe)
+            objektAusgabe.writeObject(l);
+
+            // Der Outputstream bzw. die Datei wird geschlossen.
+            objektAusgabe.close();
+        }
+
+        catch(IOException speichern){
+            // Wenn eine Ausnahme oder ein Fehler auftritt, wird normalerweise eine sogenannte
+            // "Stacktrace"-Information erzeugt. Diese Information gibt Auskunft darüber, welche Methoden
+            // aufgerufen wurden und in welcher Reihenfolge sie aufgerufen wurden, bevor der Fehler
+            // aufgetreten ist. Der Stacktrace ist wie eine Art "Verlauf" der Methodenaufrufe.
+            // Wenn man printStackTrace() aufrufst, wird der Stacktrace auf der Konsole ausgegeben.
+            // Dabei werden die Methodennamen, Dateinamen und Zeilennummern angezeigt, um den Ablauf der
+            // Methodenaufrufe zu verfolgen. Die Ausgabe enthält normalerweise die Fehlermeldung
+            // sowie den Stacktrace.
+                speichern.printStackTrace();
+            // Falls dieser Vorgang schiefgeht, gib folgende (verständliche) Fehlermeldung an den Benutzer aus:
+                throw new IOException("Fehler beim Erstellen der Datei", speichern);
+            }
+
     }
 
     public Reservierungsliste laden() throws IOException, ClassNotFoundException {
-        try (FileInputStream fileStream = new FileInputStream("GespeicherteListe.ser");
-             ObjectInputStream is = new ObjectInputStream(fileStream)) {
-            return (Reservierungsliste) is.readObject();
+        // Wir versuchen, den Filstream mit einer Datei zu verketten. Existiert die Datei nicht,
+        // wird sie automatisch erstellt.
+        try {FileInputStream dateiEingabe = new FileInputStream("GespeicherteListe.ser");
+             // Der Ojbektinputstream wird mit dem Filestream verkettet.
+             ObjectInputStream objektEingabe = new ObjectInputStream(dateiEingabe);
+            // Das eingelesene/geladene Objekt wird zurückgegeben und muss dazu als Reservierungslistenobjekt gecastet werden ()
+            //return (Reservierungsliste) is.readObject();
+            return (Reservierungsliste) objektEingabe.readObject();
+        }
+        catch (IOException | ClassNotFoundException laden) {
+            laden.printStackTrace();
+            throw new IOException("Fehler beim Laden der Datei", laden);
         }
     }
 }
