@@ -18,7 +18,8 @@ public class KompositumSerializer {
     public void speichern(Reservierungsliste l) throws IOException {
         // Diese Methode serialisiert eine übergebene Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Erstellen der Datei für die
-        // Reservierungsliste abfangen können.
+        // Reservierungsliste abfangen können, z.B. falls dem Programm die notwendigen Zugriffsrechte fehlen,
+        // um eine Datei erstellen zu dürfen.
         try {
             // Versuche, einen Anschlusstream zu erstellen, der eine Datei zum Speichern der Daten
             // erstellt.
