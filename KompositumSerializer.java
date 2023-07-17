@@ -4,6 +4,13 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 
+// Das Objekt wird nach der Initialisierung in der Lage sein, mithilfe seiner Methoden eine
+// Reservierungsliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
+// durchgeführt werden, wir verwenden hier die Java-Möglichkeit des Serialisierens bzw. Deserialisierens
+// von Objekten. Dabei wird ein Objekt zunächst auf seine Attribute zusammengeschrumpft und diese
+// dann in einer Datei gespeichert.
+// Damit dieser Prozess funktioniert, müssen alle serialisierbaren Objekte die Standarbibliothek
+// "Serializable" implementieren.
 public class KompositumSerializer {
 
     public KompositumSerializer() {}
@@ -37,12 +44,16 @@ public class KompositumSerializer {
             // sowie den Stacktrace.
                 speichern.printStackTrace();
             // Falls dieser Vorgang schiefgeht, gib folgende (verständliche) Fehlermeldung an den Benutzer aus:
-                throw new IOException("Fehler beim Erstellen der Datei", speichern);
+                throw new IOException("Fehler beim Erstellen der Datei.", speichern);
             }
 
     }
 
     public Reservierungsliste laden() throws IOException, ClassNotFoundException {
+        // Diese Methode deserialisiert eine Reservierungsliste.
+        // Die Methode muss einen möglichen kritischen Fehler beim Laden der Datei für die
+        // Reservierungsliste abfangen können.
+
         // Wir versuchen, den Filstream mit einer Datei zu verketten. Existiert die Datei nicht,
         // wird sie automatisch erstellt.
         try {FileInputStream dateiEingabe = new FileInputStream("GespeicherteListe.ser");
@@ -54,7 +65,7 @@ public class KompositumSerializer {
         }
         catch (IOException | ClassNotFoundException laden) {
             laden.printStackTrace();
-            throw new IOException("Fehler beim Laden der Datei", laden);
+            throw new IOException("Fehler beim Laden der Datei.", laden);
         }
     }
 }
