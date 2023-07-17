@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Main {
 
-    public static Testklasse test;
     public static Reservierungsliste reservierungsliste;
     public static KompositumSerializer ks;
 
