@@ -38,7 +38,7 @@ public class KompositumSerializer {
             // "Stacktrace"-Information erzeugt. Diese Information gibt Auskunft darüber, welche Methoden
             // aufgerufen wurden und in welcher Reihenfolge sie aufgerufen wurden, bevor der Fehler
             // aufgetreten ist. Der Stacktrace ist wie eine Art "Verlauf" der Methodenaufrufe.
-            // Wenn man printStackTrace() aufrufst, wird der Stacktrace auf der Konsole ausgegeben.
+            // Wenn man printStackTrace() aufruft, wird der Stacktrace auf der Konsole ausgegeben.
             // Dabei werden die Methodennamen, Dateinamen und Zeilennummern angezeigt, um den Ablauf der
             // Methodenaufrufe zu verfolgen. Die Ausgabe enthält normalerweise die Fehlermeldung
             // sowie den Stacktrace.
@@ -65,7 +65,12 @@ public class KompositumSerializer {
         }
         catch (IOException | ClassNotFoundException laden) {
             laden.printStackTrace();
-            throw new IOException("Fehler beim Laden der Datei.", laden);
+            if (laden instanceof ClassNotFoundException) {
+                throw new IOException("Fehler beim Laden der Klasse.", laden);
+            } else {
+                throw new IOException("Fehler beim Laden der Datei.", laden);
+            }
         }
+
     }
 }
