@@ -10,10 +10,10 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         reservierungsliste = new Reservierungsliste();
         ks = new KompositumSerializer();
-        reservierungsliste = ks.laden();
+        //reservierungsliste = ks.laden();
 
         reservierungsliste.alleReservierungenAusgeben();
-        //Testklasse test = new Testklasse();
+        Testklasse test = new Testklasse();
         //reservierungsliste.alleReservierungenAusgeben();
 
     }
