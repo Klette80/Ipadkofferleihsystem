@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Date;
 
-public class Reservierung
+public class Reservierung implements Serializable
 {
     Date datum;
     String name;
