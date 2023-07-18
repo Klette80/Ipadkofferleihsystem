@@ -29,7 +29,7 @@ public class Datenknoten implements Knoten, Serializable {
     public void stornieren(Date datum, Koffer koffer) {
         //Wenn das Datum und der Koffer vom Nächster der gesuchte Datensatz ist --> verzeigere um,
         //sonst führe die Methode stonieren auf dem Nächsten auf.
-        if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum() == datum && naechster.gibDaten().gibKoffer() == koffer)) {
+        if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
             System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
         } else {
@@ -49,9 +49,7 @@ public class Datenknoten implements Knoten, Serializable {
     public boolean istReserviert(Date datum) {
         if (daten.gibDatum().compareTo(datum) == 0) {
             return true;
-        } else {
-            naechster.istReserviert(datum);
         }
-        return false;
+           return naechster.istReserviert(datum);
     }
 }
