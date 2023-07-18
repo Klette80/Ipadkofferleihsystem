@@ -11,7 +11,11 @@ public class Main {
         reservierungsliste = new Reservierungsliste();
         ks = new KompositumSerializer();
 
+        // Der relative Dateipfad zu unserer vorhandenen Liste wird gespeichert.
         Path dateipfad = Paths.get("GespeicherteListe.ser");
+
+        // Falls bereits eine Liste vorliegt, wird diese in die neu instanzierte Reservierungsliste geladen,
+        // damit in der Vergangenheit getätigte Reservierungen verfügbar sin.
         if (Files.exists(dateipfad)) {
             reservierungsliste = (Reservierungsliste) ks.laden();
         }
