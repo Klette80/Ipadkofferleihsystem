@@ -7,4 +7,6 @@ public class Koffer implements Serializable {
         this.nummer=nummer;
     }
 
+    public int gibNummer() { return nummer;}
+
 }

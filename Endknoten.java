@@ -27,7 +27,7 @@ public class Endknoten implements Knoten, Serializable
     }
 
     @Override
-    public boolean istReserviert(Date datum) {
+    public boolean istReserviert(Date datum, Koffer koffer) {
         return false;
     }
 

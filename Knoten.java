@@ -8,7 +8,7 @@ public interface Knoten
     public void stornieren(Date datum, Koffer koffer) throws IOException;
     public Reservierung gibDaten();
     public Knoten gibNaechster();
-    public boolean istReserviert(Date datum);
+    public boolean istReserviert(Date datum, Koffer koffer);
     public void alleReservierungenAusgeben(int i);
 }
 

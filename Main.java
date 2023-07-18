@@ -20,7 +20,6 @@ public class Main {
             reservierungsliste = (Reservierungsliste) ks.laden();
         }
 
-        //reservierungsliste.alleReservierungenAusgeben();
         Testklasse test = new Testklasse();
         reservierungsliste.alleReservierungenAusgeben();
 

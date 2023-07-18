@@ -54,11 +54,11 @@ public class Datenknoten implements Knoten, Serializable {
     }
 
     @Override
-    public boolean istReserviert(Date datum) {
-        if (daten.gibDatum().compareTo(datum) == 0) {
+    public boolean istReserviert(Date datum, Koffer koffer) {
+        if (daten.gibDatum().compareTo(datum) == 0 && daten.gibKoffer().gibNummer() == koffer.gibNummer()) {
             return true;
         } else {
-            return naechster.istReserviert(datum);
+            return naechster.istReserviert(datum, koffer);
         }
     }
 }

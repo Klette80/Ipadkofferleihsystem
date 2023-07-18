@@ -19,7 +19,7 @@ public class Reservierungsliste implements Serializable {
     //Einen iPad-Koffer reservieren
     public void reservieren(Date datum, String name, Koffer koffer) throws IOException {
         //Prüfe, ob schon eine Reservierung vorliegt
-        if (istReserviert(datum) == false) {
+        if (istReserviert(datum, koffer) == false) {
             Reservierung reservierung = new Reservierung(datum, name, koffer);
             root = root.reservieren(reservierung);
             Main.ks.speichern(Main.reservierungsliste);
@@ -40,9 +40,9 @@ public class Reservierungsliste implements Serializable {
         }
     }
 
-    public boolean istReserviert(Date datum) {
+    public boolean istReserviert(Date datum, Koffer koffer) {
         // Prüfe, ob Koffer bereits reserviert ist
-        return root.istReserviert(datum);
+        return root.istReserviert(datum, koffer);
 
     }
 
