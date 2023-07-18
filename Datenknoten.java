@@ -40,7 +40,7 @@ public class Datenknoten implements Knoten, Serializable {
     }
 
     public void alleReservierungenAusgeben(int i){
-        System.out.println(i + " Datum: " + daten.gibDatum() + " Name: " + daten.gibName() + " Koffer: " + daten.gibKoffer());
+        System.out.println(i + " Datum: " + daten.gibDatum() + " Name: " + daten.gibName() + ", Koffer mit der Nummer: " + daten.gibKoffer().gibNummer());
         int j = i + 1;
         naechster.alleReservierungenAusgeben(j);
     }
