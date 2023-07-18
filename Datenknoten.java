@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class Datenknoten implements Knoten, Serializable {
         daten = inhalt;
     }
 
-    public Knoten reservieren(Reservierung reservierung) {
+    public Knoten reservieren(Reservierung reservierung) throws IOException {
         //Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
         //wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
         if (reservierung.datum.compareTo(daten.datum) > 0) {
@@ -26,15 +27,22 @@ public class Datenknoten implements Knoten, Serializable {
         return this;
     }
 
-    public void stornieren(Date datum, Koffer koffer) {
+    public void stornieren(Date datum, Koffer koffer) throws IOException {
         //Wenn das Datum und der Koffer vom Nächster der gesuchte Datensatz ist --> verzeigere um,
         //sonst führe die Methode stonieren auf dem Nächsten auf.
         if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
             System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
+            Main.ks.speichern(Main.reservierungsliste);
         } else {
             naechster.stornieren(datum, koffer);
         }
+    }
+
+    public void alleReservierungenAusgeben(int i){
+        System.out.println(i + " Datum: " + daten.gibDatum() + " Name: " + daten.gibName() + " Koffer: " + daten.gibKoffer());
+        int j = i + 1;
+        naechster.alleReservierungenAusgeben(j);
     }
 
     public Reservierung gibDaten() {
@@ -49,7 +57,8 @@ public class Datenknoten implements Knoten, Serializable {
     public boolean istReserviert(Date datum) {
         if (daten.gibDatum().compareTo(datum) == 0) {
             return true;
+        } else {
+            return naechster.istReserviert(datum);
         }
-           return naechster.istReserviert(datum);
     }
 }

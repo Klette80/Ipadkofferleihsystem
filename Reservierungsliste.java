@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Date;
 
 public class Reservierungsliste implements Serializable {
     private Knoten root;
-    private Koffer[] kofferliste;
+    public Koffer[] kofferliste; //public für Test
     private Array[] speicherArray;
 
     public Reservierungsliste() {
@@ -15,22 +16,24 @@ public class Reservierungsliste implements Serializable {
     }
 
     //Einen iPad-Koffer reservieren
-    public void reservieren(Date datum, String name, Koffer koffer) {
+    public void reservieren(Date datum, String name, Koffer koffer) throws IOException {
         //Prüfe, ob schon eine Reservierung vorliegt
         if (istReserviert(datum) == false) {
             Reservierung reservierung = new Reservierung(datum, name, koffer);
             root = root.reservieren(reservierung);
+            Main.ks.speichern(Main.reservierungsliste);
         } else {
             System.out.println("An diesem Datum liegt schon eine Reservierung vor");
         }
     }
 
-    //Eine vorhandene iPad-Koffer Reservierung stornieren
-    public void stornieren(Date datum, Koffer koffer) {
+    //Eine vorhandene iPad-Koffer-Reservierung stornieren
+    public void stornieren(Date datum, Koffer koffer) throws IOException {
         //Prüfe, ob zu löschender Datensatz root ist
         if (root.gibDaten().gibDatum() == datum) {
             System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " wurde gelöscht.");
             root = root.gibNaechster();
+            Main.ks.speichern(Main.reservierungsliste);
         } else {
             root.stornieren(datum, koffer);
         }
@@ -40,6 +43,10 @@ public class Reservierungsliste implements Serializable {
         // Prüfe, ob Koffer bereits reserviert ist
         return root.istReserviert(datum);
 
+    }
+
+    public void alleReservierungenAusgeben(){
+        root.alleReservierungenAusgeben(1);
     }
 
     //Koffer hinzufügen

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +9,8 @@ public class Endknoten implements Knoten, Serializable
 
     }
 
-    public Knoten reservieren(Reservierung reservierung) {
+    public Knoten reservieren(Reservierung reservierung) throws IOException {
+        //Main.ks.speichern(Main.reservierungsliste);
         return new Datenknoten(this, reservierung);
     }
 
@@ -28,4 +30,6 @@ public class Endknoten implements Knoten, Serializable
     public boolean istReserviert(Date datum) {
         return false;
     }
+
+    public void alleReservierungenAusgeben(int i){ System.out.println("Ende der Liste."); }
 }

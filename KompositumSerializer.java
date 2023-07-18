@@ -18,8 +18,7 @@ public class KompositumSerializer {
     public void speichern(Reservierungsliste l) throws IOException {
         // Diese Methode serialisiert eine übergebene Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Erstellen der Datei für die
-        // Reservierungsliste abfangen können, z.B. falls dem Programm die notwendigen Zugriffsrechte fehlen,
-        // um eine Datei erstellen zu dürfen.
+        // Reservierungsliste abfangen können.
         try {
             // Versuche, einen Anschlusstream zu erstellen, der eine Datei zum Speichern der Daten
             // erstellt.
@@ -39,14 +38,14 @@ public class KompositumSerializer {
             // "Stacktrace"-Information erzeugt. Diese Information gibt Auskunft darüber, welche Methoden
             // aufgerufen wurden und in welcher Reihenfolge sie aufgerufen wurden, bevor der Fehler
             // aufgetreten ist. Der Stacktrace ist wie eine Art "Verlauf" der Methodenaufrufe.
-            // Wenn man printStackTrace() aufruft, wird der Stacktrace auf der Konsole ausgegeben.
+            // Wenn man printStackTrace() aufrufst, wird der Stacktrace auf der Konsole ausgegeben.
             // Dabei werden die Methodennamen, Dateinamen und Zeilennummern angezeigt, um den Ablauf der
             // Methodenaufrufe zu verfolgen. Die Ausgabe enthält normalerweise die Fehlermeldung
             // sowie den Stacktrace.
-                speichern.printStackTrace();
+            speichern.printStackTrace();
             // Falls dieser Vorgang schiefgeht, gib folgende (verständliche) Fehlermeldung an den Benutzer aus:
-                throw new IOException("Fehler beim Erstellen der Datei.", speichern);
-            }
+            throw new IOException("Fehler beim Erstellen der Datei.", speichern);
+        }
 
     }
 
@@ -58,20 +57,15 @@ public class KompositumSerializer {
         // Wir versuchen, den Filstream mit einer Datei zu verketten. Existiert die Datei nicht,
         // wird sie automatisch erstellt.
         try {FileInputStream dateiEingabe = new FileInputStream("GespeicherteListe.ser");
-             // Der Ojbektinputstream wird mit dem Filestream verkettet.
-             ObjectInputStream objektEingabe = new ObjectInputStream(dateiEingabe);
+            // Der Ojbektinputstream wird mit dem Filestream verkettet.
+            ObjectInputStream objektEingabe = new ObjectInputStream(dateiEingabe);
             // Das eingelesene/geladene Objekt wird zurückgegeben und muss dazu als Reservierungslistenobjekt gecastet werden ()
             //return (Reservierungsliste) is.readObject();
             return (Reservierungsliste) objektEingabe.readObject();
         }
         catch (IOException | ClassNotFoundException laden) {
             laden.printStackTrace();
-            if (laden instanceof ClassNotFoundException) {
-                throw new IOException("Fehler beim Laden der Klasse.", laden);
-            } else {
-                throw new IOException("Fehler beim Laden der Datei.", laden);
-            }
+            throw new IOException("Fehler beim Laden der Datei.", laden);
         }
-
     }
 }
