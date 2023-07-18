@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Date;
 
 public class Reservierungsliste implements Serializable {
+    private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
     public Koffer[] kofferliste; //public für Test
     private Array[] speicherArray;
