@@ -46,7 +46,6 @@ public class KompositumSerializer {
             // Falls dieser Vorgang schiefgeht, gib folgende (verständliche) Fehlermeldung an den Benutzer aus:
             throw new IOException("Fehler beim Erstellen der Datei.", speichern);
         }
-
     }
 
     public Reservierungsliste laden() throws IOException, ClassNotFoundException {
