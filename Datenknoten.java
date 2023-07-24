@@ -12,8 +12,8 @@ public class Datenknoten implements Knoten, Serializable {
     }
 
     public Knoten reservieren(Reservierung reservierung) throws IOException {
-        //Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
-        //wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
+        // Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
+        // wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
         if (reservierung.datum.compareTo(daten.datum) > 0) {
             naechster = naechster.reservieren(reservierung);
             return this;

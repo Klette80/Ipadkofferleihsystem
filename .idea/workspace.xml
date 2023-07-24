@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Endknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Endknoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KompositumSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/KompositumSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierungsliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierungsliste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -101,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689706121860</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
+      <created>1689762473458</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689762473458</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

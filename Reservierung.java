@@ -25,4 +25,5 @@ public class Reservierung implements Serializable
     public Koffer gibKoffer() {
         return koffer;
     }
+
 }

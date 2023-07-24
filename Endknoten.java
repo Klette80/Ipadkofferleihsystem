@@ -4,10 +4,7 @@ import java.util.Date;
 
 public class Endknoten implements Knoten, Serializable
 {
-    public Endknoten()
-    {
-
-    }
+    public Endknoten() { }
 
     public Knoten reservieren(Reservierung reservierung) throws IOException {
         //Main.ks.speichern(Main.reservierungsliste);

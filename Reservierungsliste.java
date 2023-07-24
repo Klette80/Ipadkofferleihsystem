@@ -22,7 +22,7 @@ public class Reservierungsliste implements Serializable {
         if (istReserviert(datum, koffer) == false) {
             Reservierung reservierung = new Reservierung(datum, name, koffer);
             root = root.reservieren(reservierung);
-            Main.ks.speichern(Main.reservierungsliste);
+            speichern();
         } else {
             System.out.println("An diesem Datum liegt schon eine Reservierung vor");
         }
@@ -34,7 +34,7 @@ public class Reservierungsliste implements Serializable {
         if (root.gibDaten().gibDatum() == datum) {
             System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " wurde gelöscht.");
             root = root.gibNaechster();
-            Main.ks.speichern(Main.reservierungsliste);
+            speichern();
         } else {
             root.stornieren(datum, koffer);
         }
@@ -79,6 +79,10 @@ public class Reservierungsliste implements Serializable {
             kofferliste[nummer] = null;
             System.out.println("Der Koffer mit der Nummer " + nummer + " wurde entfernt.");
         }
+    }
+
+    public void speichern() throws IOException {
+        Main.ks.speichern(Main.reservierungsliste);
     }
 
 }
