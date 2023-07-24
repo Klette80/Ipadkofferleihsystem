@@ -33,7 +33,8 @@ public class Datenknoten implements Knoten, Serializable {
         if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
             System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
-            speichern();
+            Main.ks.speichern(Main.reservierungsliste);
+            //speichern();
         } else {
             naechster.stornieren(datum, koffer);
         }
