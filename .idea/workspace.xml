@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="...">
+      <change afterPath="$PROJECT_DIR$/.$Klassendiagramm.drawio.bkp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Endknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Endknoten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KompositumSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/KompositumSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierung.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reservierungsliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierungsliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Klassendiagramm.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Knoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Knoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +130,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Stefan" />
+                        <option value="Stefan" />
                       </list>
                     </value>
                   </entry>

@@ -10,5 +10,6 @@ public interface Knoten
     public Knoten gibNaechster();
     public boolean istReserviert(Date datum, Koffer koffer);
     public void alleReservierungenAusgeben(int i);
+
 }
 

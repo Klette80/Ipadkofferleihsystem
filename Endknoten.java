@@ -29,4 +29,5 @@ public class Endknoten implements Knoten, Serializable
     }
 
     public void alleReservierungenAusgeben(int i){ System.out.println("Ende der Liste."); }
+
 }
