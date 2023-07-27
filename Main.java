@@ -6,9 +6,11 @@ public class Main {
 
     public static Reservierungsliste reservierungsliste;
     public static KompositumSerializer ks;
+    public static  Benutzerliste benutzerliste;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         reservierungsliste = new Reservierungsliste();
+        benutzerliste = new Benutzerliste();
         ks = new KompositumSerializer();
 
         // Der relative Dateipfad zu unserer vorhandenen Liste wird gespeichert.
@@ -21,7 +23,6 @@ public class Main {
         }
 
         Testklasse test = new Testklasse();
-        reservierungsliste.alleReservierungenAusgeben();
 
     }
 
