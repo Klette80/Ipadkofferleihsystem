@@ -1,12 +1,11 @@
 public class Benutzerliste {
     private Node erster;
     private Benutzer angemeldeterBenutzer;
-    private Benutzer neu;
 
     public Benutzerliste() {
         erster = new EndNode();
         angemeldeterBenutzer = null;
-        neu = new Benutzer("Admin", "Admin", "admin", "admin");
+        Benutzer neu = new Benutzer("Admin", "Admin", "admin", "admin");
         erster = erster.einfuegen(neu);
     }
 
