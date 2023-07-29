@@ -16,7 +16,7 @@ public class Main {
         // Der relative Dateipfad zu unserer vorhandenen Liste wird gespeichert.
         Path dateipfad = Paths.get("GespeicherteListe.ser");
 
-        // Falls bereits eine Liste vorliegt, wird diese in die neu instanzierte Reservierungsliste geladen,
+        // Falls bereits eine Liste vorliegt, wird diese in die neu instanziierte Reservierungsliste geladen,
         // damit in der Vergangenheit getätigte Reservierungen verfügbar sind.
         if (Files.exists(dateipfad)) {
             reservierungsliste = ks.laden();
