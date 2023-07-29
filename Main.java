@@ -20,6 +20,8 @@ public class Main {
         // damit in der Vergangenheit getätigte Reservierungen verfügbar sind.
         if (Files.exists(dateipfad)) {
             reservierungsliste = ks.laden();
+            //Wenn der angemeldete Benutzer mit gespeichert wurde, wird dieser nach dem Laden abgemeldet
+            benutzerliste.benutzerAbmelden();
         }
 
         Testklasse test = new Testklasse();
