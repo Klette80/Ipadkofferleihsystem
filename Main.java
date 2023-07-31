@@ -38,12 +38,7 @@ public class Main {
         // Lade die GUI
         GUI gui = new GUI(reservierungsliste);
 
-
-
-
     }
-
-
 }
 
 

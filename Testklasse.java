@@ -16,12 +16,12 @@ public class Testklasse {
         Main.benutzerliste.benutzerlisteAusgeben();
         System.out.println("Starte Testklasse");
 
-        Main.reservierungsliste.reservieren(datum1, "Hans", Main.reservierungsliste.kofferliste[1]);
-        Main.reservierungsliste.reservieren(datum2, "Peter", Main.reservierungsliste.kofferliste[1]);
-        Main.reservierungsliste.reservieren(datum3, "Peter", Main.reservierungsliste.kofferliste[1]);
+        //Main.reservierungsliste.reservieren(datum1, "Hans", Main.reservierungsliste.kofferliste[1]);
+        //Main.reservierungsliste.reservieren(datum2, "Peter", Main.reservierungsliste.kofferliste[1]);
+        //Main.reservierungsliste.reservieren(datum3, "Peter", Main.reservierungsliste.kofferliste[1]);
 
-        //Main.reservierungsliste.stornieren(datum1, Main.reservierungsliste.kofferliste[1] );
-        //Main.reservierungsliste.stornieren(datum2, Main.reservierungsliste.kofferliste[1] );
+        Main.reservierungsliste.stornieren(datum1, Main.reservierungsliste.kofferliste[1] );
+        Main.reservierungsliste.stornieren(datum2, Main.reservierungsliste.kofferliste[1] );
         Main.reservierungsliste.stornieren(datum3, Main.reservierungsliste.kofferliste[1] );
 
         Main.benutzerliste.benutzerEinfuegen("Daniel", "Liebscher", "lida", "passwort");
