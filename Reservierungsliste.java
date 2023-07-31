@@ -9,6 +9,7 @@ public class Reservierungsliste implements Serializable {
     private Knoten root;
     public Koffer[] kofferliste; //public für Test
     private Array[] speicherArray;
+    public String gewaehltesDatum;
 
     public Reservierungsliste() throws IOException {
         root = new Endknoten();

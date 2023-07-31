@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import java.time.LocalDate;
@@ -14,13 +13,7 @@ public class Kalender {
     JDialog d;
     JButton[] button = new JButton[49];
 
-
-
-
-
-
-
-    public Kalender(JFrame parent,Reservierungsliste reservierungsliste) {
+    public Kalender(JDialog parent, Reservierungsliste reservierungsliste, Koffer koffer) {
         d = new JDialog();
         d.setModal(true);
         String[] header = { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" };
@@ -29,18 +22,27 @@ public class Kalender {
         previous.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 month--;
-                displayDate(reservierungsliste);
+                System.out.println(month);
+                if(month<0){
+                    month = 11;
+                    year=year-1;
+                }
+                displayDate(reservierungsliste, koffer);
             }
         });
         p2.add(previous);
-
         p2.add(l);
 
         JButton next = new JButton(">>");
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                month++;
-                displayDate(reservierungsliste);
+                month=month+1;
+                System.out.println(month);
+                if(month>11){
+                    month=0;
+                    year=year+1;
+                }
+                displayDate(reservierungsliste, koffer);
             }
         });
         p2.add(next);
@@ -69,22 +71,17 @@ public class Kalender {
         }
 
 
-        next.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                month++;
-                displayDate(reservierungsliste);
-            }
-        });
+
         p2.add(next);
         d.add(p1, BorderLayout.CENTER);
         d.add(p2, BorderLayout.SOUTH);
         d.pack();
         d.setLocationRelativeTo(parent);
-        displayDate(reservierungsliste);
+        displayDate(reservierungsliste, koffer);
         d.setVisible(true);
     }
 
-    public void displayDate(Reservierungsliste reservierungsliste) {
+    public void displayDate(Reservierungsliste reservierungsliste, Koffer koffer) {
 
         for (int x = 7; x < button.length; x++)
             button[x].setText("");
@@ -101,14 +98,12 @@ public class Kalender {
             int jahr=year;
             int monat=month+1;
             int tag=day;
-           LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
-            System.out.println("Year Input:"+year+"Datum in Date:"+datum_1.getYear());
-            System.out.println("Month Input:"+month+"Datum in Date:"+datum_1.getMonth());
-            System.out.println("Day Input:"+day+"Datum in Date:"+datum_1.getDayOfMonth());
-            if (reservierungsliste.istReserviert(datum_1, reservierungsliste.kofferliste[1])==true) {
-System.out.println("reservierung gefunden");
-            button[i].setBackground(Color.red);
-        }
+            LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
+
+            if (reservierungsliste.istReserviert(datum_1, koffer)==true) {
+                System.out.println("Kalender: Reservierung gefunden");
+                button[i].setBackground(Color.red);
+            }
 
         }
 
@@ -118,7 +113,7 @@ System.out.println("reservierung gefunden");
 
     public String setPickedDate() {
         if (day.equals("")){
-            System.out.println("day ist Null");
+            System.out.println("Kalender: day ist Null");
             return day;}
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
                 "dd-MM-yyyy");
