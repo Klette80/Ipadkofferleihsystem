@@ -1,11 +1,19 @@
+//import swing_1.DatePicker;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.*;
 import java.nio.file.*;
+
 
 public class Main {
 
     public static Reservierungsliste reservierungsliste;
     public static KompositumSerializer ks;
+    public boolean reserviert;
+
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         reservierungsliste = new Reservierungsliste();
@@ -23,7 +31,14 @@ public class Main {
         Testklasse test = new Testklasse();
         reservierungsliste.alleReservierungenAusgeben();
 
+        GUI gui = new GUI(reservierungsliste);
+
+
+
+
     }
 
 
 }
+
+
