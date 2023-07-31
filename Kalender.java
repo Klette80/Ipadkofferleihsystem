@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import java.awt.event.*;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.swing.*;
 
@@ -100,10 +101,10 @@ public class Kalender {
             int jahr=year;
             int monat=month+1;
             int tag=day;
-           Date datum_1 = new Date(jahr, monat, tag);
+           LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
             System.out.println("Year Input:"+year+"Datum in Date:"+datum_1.getYear());
             System.out.println("Month Input:"+month+"Datum in Date:"+datum_1.getMonth());
-            System.out.println("Day Input:"+day+"Datum in Date:"+datum_1.getDate());
+            System.out.println("Day Input:"+day+"Datum in Date:"+datum_1.getDayOfMonth());
             if (reservierungsliste.istReserviert(datum_1, reservierungsliste.kofferliste[1])==true) {
 System.out.println("reservierung gefunden");
             button[i].setBackground(Color.red);

@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Implementierung der Speicherfunktion für die Benutzerliste.">
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Endknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Endknoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kalender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Knoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Knoten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierung.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierung.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierungsliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierungsliste.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Knoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Knoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierung.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierung.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
     </list>
@@ -59,10 +74,20 @@
     &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Ipadkofferleihsystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,41 +134,13 @@
       <updated>1689705987542</updated>
     </task>
     <task id="LOCAL-00006" summary="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
-      <created>1689706121860</created>
+      <created>1690786856293</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1689706121860</updated>
+      <updated>1690786856293</updated>
     </task>
-    <task id="LOCAL-00007" summary="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
-      <created>1689762473458</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1689762473458</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Anpassung der try/catch-Logik: Die Console sollte nun keine Fehlermeldung mehr ausgeben, falls die Versionsnr. von GespeicherteListe.ser nicht identisch ist.">
-      <created>1690795948506</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1690795948506</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Anpassung der try/catch-Logik: Die Console sollte nun keine Fehlermeldung mehr ausgeben, falls die Versionsnr. von GespeicherteListe.ser nicht identisch ist.">
-      <created>1690796108478</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1690796108478</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Implementierung der Speicherfunktion für die Benutzerliste.">
-      <created>1690800634165</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1690800634165</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,12 +149,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Stefan" />
+                        <option value="origin/Stefan" />
                       </list>
                     </value>
                   </entry>
@@ -175,8 +177,6 @@
     <MESSAGE value="Kommentare ergänzt." />
     <MESSAGE value="istReserviert-Methode um Koffer-Objekt erweitert." />
     <MESSAGE value="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer" />
-    <MESSAGE value="Anpassung der try/catch-Logik: Die Console sollte nun keine Fehlermeldung mehr ausgeben, falls die Versionsnr. von GespeicherteListe.ser nicht identisch ist." />
-    <MESSAGE value="Implementierung der Speicherfunktion für die Benutzerliste." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementierung der Speicherfunktion für die Benutzerliste." />
+    <option name="LAST_COMMIT_MESSAGE" value="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer" />
   </component>
 </project>

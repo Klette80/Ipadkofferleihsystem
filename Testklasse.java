@@ -1,28 +1,24 @@
 import java.io.IOException;
-import java.util.Date;
+import java.time.chrono.ChronoLocalDate;
+//import java.util.Date;
+//https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html#of-int-int-int-int-int-
+import java.time.LocalDate;
 
 public class Testklasse {
-    public Date datum1;
-    public Date datum2;
-    public Date datum3;
+    public LocalDate datum1;
+    public LocalDate datum2;
+    public LocalDate datum3;
+
+    //public static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute)
+    public LocalDate datum4;
 
     public Testklasse() throws IOException {
 
-        datum1 = new Date(2023, 6, 1);
-        datum2 = new Date(2023, 3, 9);
-        datum3 = new Date(2023, 7, 24);
+        datum1 = LocalDate.of(2023, 6, 1);
+        datum2 = LocalDate.of(2023, 3, 9);
+        datum3 = LocalDate.of(2023, 10, 2);
+        datum4 = LocalDate.of(2024, 9, 29);
 
-        Main.reservierungsliste.alleReservierungenAusgeben();
-        Main.benutzerliste.benutzerlisteAusgeben();
-        System.out.println("Starte Testklasse");
-
-        //Main.reservierungsliste.reservieren(datum1, "Hans", Main.reservierungsliste.kofferliste[1]);
-        //Main.reservierungsliste.reservieren(datum2, "Peter", Main.reservierungsliste.kofferliste[1]);
-        //Main.reservierungsliste.reservieren(datum3, "Peter", Main.reservierungsliste.kofferliste[1]);
-
-        Main.reservierungsliste.stornieren(datum1, Main.reservierungsliste.kofferliste[1] );
-        Main.reservierungsliste.stornieren(datum2, Main.reservierungsliste.kofferliste[1] );
-        Main.reservierungsliste.stornieren(datum3, Main.reservierungsliste.kofferliste[1] );
 
         Main.benutzerliste.benutzerEinfuegen("Daniel", "Liebscher", "lida", "passwort");
         Main.benutzerliste.benutzerAnmelden("admin", "admin");

@@ -1,20 +1,21 @@
 import java.io.Serializable;
-import java.util.Date;
+//import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservierung implements Serializable
 {
-    Date datum;
+    LocalDate datum;
     String name;
     Koffer koffer;
 
-    public Reservierung(Date datum, String name, Koffer koffer)
+    public Reservierung(LocalDate datum, String name, Koffer koffer)
     {
         this.datum = datum;
         this.name = name;
         this.koffer = koffer;
     }
 
-    public Date gibDatum(){
+    public LocalDate gibDatum(){
         return datum;
     }
 
