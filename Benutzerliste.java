@@ -20,7 +20,6 @@ public class Benutzerliste implements Serializable {
             Node aktuell = erster;
             while (aktuell.gibNaechster() != null){
                 if(aktuell.gibInhalt().gibBenutzername().equals(benutzername) && aktuell.gibInhalt().gibPasswort().equals(passwort)){
-                //if(aktuell.gibInhalt().gibBenutzername() == benutzername && aktuell.gibInhalt().gibPasswort() == passwort){
                     angemeldeterBenutzer = aktuell.gibInhalt();
                     break;
                 } else {
@@ -44,12 +43,14 @@ public class Benutzerliste implements Serializable {
 
     //Benutzer hinzufügen - nur für Admin möglich
     public void benutzerEinfuegen(String vorname, String name, String benutzername, String passwort) throws IOException {
+        String admin = "admin";
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
-        } else if(angemeldeterBenutzer.gibBenutzername() == "admin"){
+        } else if(angemeldeterBenutzer.gibBenutzername().equals(admin)){
             Benutzer neuerBenutzer = new Benutzer(vorname, name, benutzername, passwort);
             erster = erster.einfuegen(neuerBenutzer);
             speichern();
+            //System.out.println("Neuer Nutzer erfolgreich angelegt.");
         } else {
             System.out.println("Neue Benutzer können nur vom Admin angelegt werden.");
         }
@@ -57,12 +58,13 @@ public class Benutzerliste implements Serializable {
 
     //Benutzer entfernen - nur für Admin möglich
     public void benutzerLoeschen(String benutzername) throws IOException {
+        String admin = "admin";
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
-        }else if(benutzername == "admin"){
+        }else if(benutzername.equals(admin)){
             System.out.println("Der Admin kann nicht gelöscht werden.");
-        } else if(angemeldeterBenutzer.gibBenutzername() == "admin"){
-            if(erster.gibInhalt().gibBenutzername() == benutzername){
+        } else if(angemeldeterBenutzer.gibBenutzername().equals(admin)){
+            if(erster.gibInhalt().gibBenutzername().equals(benutzername)){
                 System.out.println("Der Benutzer " + erster.gibInhalt().gibBenutzername() + " wurde gelöscht.");
                 erster = erster.gibNaechster();
                 speichern();
@@ -79,7 +81,7 @@ public class Benutzerliste implements Serializable {
     public void benutzerPasswortAendern(String benutzer, String neuesPasswort) throws IOException {
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
-        } else if(angemeldeterBenutzer.gibBenutzername() == benutzer){
+        } else if(angemeldeterBenutzer.gibBenutzername().equals(benutzer)){
             angemeldeterBenutzer.setzePasswort(neuesPasswort);
             speichern();
         } else {

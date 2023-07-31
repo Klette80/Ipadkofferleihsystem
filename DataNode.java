@@ -12,7 +12,7 @@ public class DataNode implements Node, Serializable
     }
 
     public Node einfuegen(Benutzer neuerBenutzer){
-        if(neuerBenutzer.gibBenutzername() == inhalt.gibBenutzername()){
+        if(neuerBenutzer.gibBenutzername().equals(inhalt.gibBenutzername())) {
             System.out.println("Benutzername ist bereis vergeben.");
             return this;
         }else if(neuerBenutzer.gibBenutzername().compareTo(inhalt.gibBenutzername()) > 0){
@@ -22,6 +22,7 @@ public class DataNode implements Node, Serializable
             DataNode neu = new DataNode(naechster, inhalt);
             this.naechster = neu;
             this.inhalt = neuerBenutzer;
+            System.out.println("Neuer Nutzer wurde erfolgreich angelegt.");
         }
         return this;
     }
@@ -29,7 +30,7 @@ public class DataNode implements Node, Serializable
     public void loeschen(String benutzername){
         //Wenn der Benutzername vom Nächsten der gesuchte Datensatz ist --> verzeigere um,
         //sonst führe die Methode loeschen auf dem Nächsten aus.
-        if((naechster.gibInhalt() != null && naechster.gibInhalt().gibBenutzername() == benutzername)){
+        if((naechster.gibInhalt() != null && naechster.gibInhalt().gibBenutzername().equals(benutzername))){
             System.out.println("Der Benutzer " + naechster.gibInhalt().gibBenutzername() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
         } else {

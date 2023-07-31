@@ -28,7 +28,13 @@ public class Testklasse {
         Main.benutzerliste.benutzerAbmelden();
         Main.benutzerliste.benutzerAnmelden("sida", "passwort");
         Main.reservierungsliste.reservieren(datum3, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
+        Main.benutzerliste.benutzerLoeschen("sida");
+        Main.benutzerliste.benutzerAbmelden();
+        Main.benutzerliste.benutzerAnmelden("admin", "admin");
+        //Main.benutzerliste.benutzerLoeschen("sida");
+        Main.benutzerliste.benutzerLoeschen("admin");
 
+        //Main.reservierungsliste.reservieren(datum1, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
 
         Main.reservierungsliste.alleReservierungenAusgeben();
         Main.benutzerliste.benutzerlisteAusgeben();
