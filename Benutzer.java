@@ -14,7 +14,13 @@ public class Benutzer implements Serializable
         this.benutzername = benutzername;
         this.passwort = passwort;
     }
-
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        return false;
+    }
     public String gibVorname(){
         return vorname;
     }

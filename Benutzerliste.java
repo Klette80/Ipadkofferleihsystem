@@ -19,7 +19,8 @@ public class Benutzerliste implements Serializable {
         if(angemeldeterBenutzer == null){
             Node aktuell = erster;
             while (aktuell.gibNaechster() != null){
-                if(aktuell.gibInhalt().gibBenutzername() == benutzername && aktuell.gibInhalt().gibPasswort() == passwort){
+                if(aktuell.gibInhalt().gibBenutzername().equals(benutzername) && aktuell.gibInhalt().gibPasswort().equals(passwort)){
+                //if(aktuell.gibInhalt().gibBenutzername() == benutzername && aktuell.gibInhalt().gibPasswort() == passwort){
                     angemeldeterBenutzer = aktuell.gibInhalt();
                     break;
                 } else {

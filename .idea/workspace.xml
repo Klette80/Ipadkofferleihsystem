@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Implementierung der Speicherfunktion für die Benutzerliste.">
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Verschlankung des Exception-Handlings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BenutzerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/BenutzerSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KompositumSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/KompositumSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benutzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/BenutzerListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benutzerliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzerliste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690804476936</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Verschlankung des Exception-Handlings">
+      <created>1690808852878</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690808852878</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,6 +183,7 @@
     <MESSAGE value="istReserviert-Methode um Koffer-Objekt erweitert." />
     <MESSAGE value="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer" />
     <MESSAGE value="Implementierung der Speicherfunktion für die Benutzerliste." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementierung der Speicherfunktion für die Benutzerliste." />
+    <MESSAGE value="Verschlankung des Exception-Handlings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verschlankung des Exception-Handlings" />
   </component>
 </project>
