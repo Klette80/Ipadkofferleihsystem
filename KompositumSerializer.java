@@ -1,8 +1,4 @@
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
-import java.io.IOException;
+import java.io.*;
 
 // Das Objekt wird nach der Initialisierung in der Lage sein, mithilfe seiner Methoden eine
 // Reservierungsliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
@@ -15,7 +11,7 @@ public class KompositumSerializer {
 
     public KompositumSerializer() {}
 
-    public void speichern(Reservierungsliste l) throws IOException {
+    public void speichern(Reservierungsliste l) throws IOException, InvalidClassException {
         // Diese Methode serialisiert eine übergebene Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Erstellen der Datei für die
         // Reservierungsliste abfangen können.
@@ -33,7 +29,7 @@ public class KompositumSerializer {
             objektAusgabe.close();
         }
 
-        catch(IOException speichern){
+        catch(Exception speichern){
             // Wenn eine Ausnahme oder ein Fehler auftritt, wird normalerweise eine sogenannte
             // "Stacktrace"-Information erzeugt. Diese Information gibt Auskunft darüber, welche Methoden
             // aufgerufen wurden und in welcher Reihenfolge sie aufgerufen wurden, bevor der Fehler
@@ -48,7 +44,7 @@ public class KompositumSerializer {
         }
     }
 
-    public Reservierungsliste laden() throws IOException, ClassNotFoundException {
+    public Reservierungsliste laden() throws IOException, ClassNotFoundException, InvalidClassException {
         // Diese Methode deserialisiert eine Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Laden der Datei für die
         // Reservierungsliste abfangen können.
@@ -62,7 +58,7 @@ public class KompositumSerializer {
             //return (Reservierungsliste) is.readObject();
             return (Reservierungsliste) objektEingabe.readObject();
         }
-        catch (IOException | ClassNotFoundException laden) {
+        catch (Exception laden) {
             laden.printStackTrace();
             throw new IOException("Fehler beim Laden der Datei.", laden);
         }
