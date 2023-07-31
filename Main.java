@@ -1,20 +1,12 @@
-//import swing_1.DatePicker;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.InvalidClassException;
 import java.util.*;
 import java.nio.file.*;
-
 
 public class Main {
 
     public static Reservierungsliste reservierungsliste;
     public static KompositumSerializer ks;
-    public boolean reserviert;
-
+    public static  Benutzerliste benutzerliste;
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InvalidClassException {
 
