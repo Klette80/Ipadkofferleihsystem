@@ -15,6 +15,7 @@ public class Main {
     try {
         // Versuche die Reservierungsliste aus der Datei GespeicherteListe.ser zu laden.
             reservierungsliste = ks.laden();
+            benutzerliste = ks.laden();
     }
     catch (Exception ice) {
         // Sollte das Laden fehlschlagen, erstelle eine neues Objekt Reservierungsliste:
