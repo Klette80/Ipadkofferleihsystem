@@ -62,9 +62,11 @@ public class KompositumSerializer {
             //return (Reservierungsliste) is.readObject();
             return (Reservierungsliste) objektEingabe.readObject();
         }
-        catch (IOException | ClassNotFoundException laden) {
-            laden.printStackTrace();
-            throw new IOException("Fehler beim Laden der Datei.", laden);
+        catch (Exception laden) {
+            //laden.printStackTrace();
+            Reservierungsliste rl = new Reservierungsliste();
+            //throw new IOException("Fehler beim Laden der Datei. Erstelle neue Datei.", laden);
+            return rl;
         }
     }
 }

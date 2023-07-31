@@ -19,9 +19,11 @@ public class Testklasse {
         datum3 = LocalDate.of(2023, 10, 2);
         datum4 = LocalDate.of(2024, 9, 29);
 
+        Main.reservierungsliste.alleReservierungenAusgeben();
+        Main.benutzerliste.benutzerlisteAusgeben();
 
-        Main.benutzerliste.benutzerEinfuegen("Daniel", "Liebscher", "lida", "passwort");
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
+        Main.benutzerliste.benutzerEinfuegen("Daniel", "Liebscher", "lida", "passwort");
         Main.benutzerliste.benutzerEinfuegen("Daniel", "Simon", "sida", "passwort");
         Main.benutzerliste.benutzerAbmelden();
         Main.benutzerliste.benutzerAnmelden("sida", "passwort");

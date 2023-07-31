@@ -59,8 +59,10 @@ public class BenutzerSerializer {
             return (Benutzerliste) objektEingabe.readObject();
         }
         catch (Exception laden) {
-            laden.printStackTrace();
-            throw new IOException("Fehler beim Laden der Datei.", laden);
+            Benutzerliste bl = new Benutzerliste();
+            //laden.printStackTrace();
+            //throw new IOException("Fehler beim Laden der Datei. Erstelle neue Reservierungsliste", laden);
+            return bl;
         }
     }
 }

@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Implementierung der Speicherfunktion für die Benutzerliste." />
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Implementierung der Speicherfunktion für die Benutzerliste.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/BenutzerSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KompositumSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/KompositumSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690804299864</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implementierung der Speicherfunktion für die Benutzerliste.">
+      <created>1690804476936</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690804476936</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +156,7 @@
             <State>
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
-                  <entry key="Show.Git.Branches" value="false" />
+                  <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
               <option name="FILTERS">

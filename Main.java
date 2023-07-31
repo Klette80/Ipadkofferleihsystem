@@ -15,22 +15,10 @@ public class Main {
         ks = new KompositumSerializer();
         bs = new BenutzerSerializer();
 
-    try {
-        // Versuche die Reservierungsliste aus der Datei GespeicherteListe.ser zu laden.
             reservierungsliste = ks.laden();
-    }
-    catch (Exception ice) {
-        // Sollte das Laden fehlschlagen, erstelle eine neues Objekt Reservierungsliste:
-        reservierungsliste = new Reservierungsliste();
-    }
-    try {
-        // Folgt derselben Logik wie oben.
-        benutzerliste = bs.laden();
-    }
-    catch (Exception e) {
 
-        benutzerliste = new Benutzerliste();
-    }
+
+            benutzerliste = bs.laden();
 
         Testklasse test = new Testklasse();
         reservierungsliste.alleReservierungenAusgeben();
