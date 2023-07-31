@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Anpassung der try/catch-Logik: Die Console sollte nun keine Fehlermeldung mehr ausgeben, falls die Versionsnr. von GespeicherteListe.ser nicht identisch ist.">
-      <change afterPath="$PROJECT_DIR$/.$Klassendiagramm.drawio.bkp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BenutzerSerializer.java" afterDir="false" />
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Anpassungen zum besseren Exception-Handling">
+      <change afterPath="$PROJECT_DIR$/BenutzerListe.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benutzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/BenutzerSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benutzerliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzerliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EndNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/EndNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierungsliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierungsliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/KompositumSerializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +68,11 @@
     &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

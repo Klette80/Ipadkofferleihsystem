@@ -9,11 +9,13 @@ public class Reservierungsliste implements Serializable {
     public Koffer[] kofferliste; //public für Test
     private Array[] speicherArray;
 
-    public Reservierungsliste() {
+    public Reservierungsliste() throws IOException {
         root = new Endknoten();
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[100];
         kofferliste[1] = koffer;
+        KompositumSerializer ks = new KompositumSerializer();
+        ks.speichern(this);
     }
 
     //Einen iPad-Koffer reservieren

@@ -1,7 +1,7 @@
 import java.io.*;
 
 // Das Objekt wird nach der Initialisierung in der Lage sein, mithilfe seiner Methoden eine
-// Reservierungsliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
+// Benutzerliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
 // durchgeführt werden, wir verwenden hier die Java-Möglichkeit des Serialisierens bzw. Deserialisierens
 // von Objekten. Dabei wird ein Objekt zunächst auf seine Attribute zusammengeschrumpft und diese
 // dann in einer Datei gespeichert.

@@ -1,4 +1,6 @@
-public class EndNode implements Node
+import java.io.Serializable;
+
+public class EndNode implements Node, Serializable
 {
 
     public EndNode()

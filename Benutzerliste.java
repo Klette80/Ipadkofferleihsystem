@@ -1,12 +1,17 @@
-public class Benutzerliste {
+import java.io.IOException;
+import java.io.Serializable;
+
+public class Benutzerliste implements Serializable {
     private Node erster;
     private Benutzer angemeldeterBenutzer;
 
-    public Benutzerliste() {
+    public Benutzerliste() throws IOException {
         erster = new EndNode();
         angemeldeterBenutzer = null;
         Benutzer neu = new Benutzer("Admin", "Admin", "admin", "admin");
         erster = erster.einfuegen(neu);
+        BenutzerSerializer bs = new BenutzerSerializer();
+        bs.speichern(this);
     }
 
     //Benutzer anmelden
@@ -37,19 +42,20 @@ public class Benutzerliste {
     }
 
     //Benutzer hinzufügen - nur für Admin möglich
-    public void benutzerEinfuegen(String vorname, String name, String benutzername, String passwort){
+    public void benutzerEinfuegen(String vorname, String name, String benutzername, String passwort) throws IOException {
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
         } else if(angemeldeterBenutzer.gibBenutzername() == "admin"){
             Benutzer neuerBenutzer = new Benutzer(vorname, name, benutzername, passwort);
             erster = erster.einfuegen(neuerBenutzer);
+            speichern();
         } else {
             System.out.println("Neue Benutzer können nur vom Admin angelegt werden.");
         }
     }
 
     //Benutzer entfernen - nur für Admin möglich
-    public void benutzerLoeschen(String benutzername){
+    public void benutzerLoeschen(String benutzername) throws IOException {
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
         }else if(benutzername == "admin"){
@@ -58,8 +64,10 @@ public class Benutzerliste {
             if(erster.gibInhalt().gibBenutzername() == benutzername){
                 System.out.println("Der Benutzer " + erster.gibInhalt().gibBenutzername() + " wurde gelöscht.");
                 erster = erster.gibNaechster();
+                speichern();
             } else {
                 erster.loeschen(benutzername);
+                speichern();
             }
         } else {
             System.out.println("Neue Benutzer können nur vom Admin angelegt werden.");
@@ -67,11 +75,12 @@ public class Benutzerliste {
     }
 
     //Benutzerpasswort ändern - nur für den angemeldeten Benutzer möglich
-    public void benutzerPasswortAendern(String benutzer, String neuesPasswort){
+    public void benutzerPasswortAendern(String benutzer, String neuesPasswort) throws IOException {
         if(angemeldeterBenutzer == null){
             System.out.println("Es ist kein Benutzer angemeldet.");
         } else if(angemeldeterBenutzer.gibBenutzername() == benutzer){
             angemeldeterBenutzer.setzePasswort(neuesPasswort);
+            speichern();
         } else {
             System.out.println("Das Passwort kann nur vom angemeldeten Benutzer geändert werden.");
         }
@@ -99,6 +108,10 @@ public class Benutzerliste {
     //Gibt den das erste Objekt in der Benutzerliste zurück
     public Node gibErster(){
         return erster;
+    }
+
+    private void speichern() throws IOException {
+        Main.bs.speichern(Main.benutzerliste);
     }
 }
 

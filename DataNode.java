@@ -1,4 +1,6 @@
-public class DataNode implements Node
+import java.io.Serializable;
+
+public class DataNode implements Node, Serializable
 {
     private Node naechster;
     private Benutzer inhalt;
