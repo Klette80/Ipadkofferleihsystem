@@ -21,8 +21,8 @@ public class GUI {
         JTextField tf = new JTextField(20);
         tf.setVisible(true);
         panel.add(tf);
-        String[] koffers= new String[10];
-        for (int j = 0;j<10;j++){
+        String[] koffers= new String[reservierungsliste.kofferliste.length];
+        for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
 
             koffers[j]= "Koffer "+(j);
         }
@@ -52,6 +52,7 @@ public class GUI {
 
                 LocalDate pickedDate = LocalDate.of(year, month, day);
                 System.out.println("GUI:ActionListener Datum :" + pickedDate);
+                System.out.println("gewählte Koffernummer "+ cb.getSelectedIndex());
                 if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()]) == true) {
                     frame.dispose();
                     JDialog end = new JDialog();

@@ -15,7 +15,10 @@ public class Reservierungsliste implements Serializable {
         root = new Endknoten();
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[100];
-        kofferliste[1] = koffer;
+        for(int i =0;i<kofferliste.length;i++){
+            kofferliste[i]=new Koffer(i);
+        }
+        //kofferliste[1] = koffer;
         KompositumSerializer ks = new KompositumSerializer();
         ks.speichern(this);
     }
