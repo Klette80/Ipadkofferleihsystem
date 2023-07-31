@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="...">
-      <change afterPath="$PROJECT_DIR$/.$Klassendiagramm.drawio.bkp" afterDir="false" />
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datenknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datenknoten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Endknoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Endknoten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Klassendiagramm.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Knoten.java" beforeDir="false" afterPath="$PROJECT_DIR$/Knoten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Benutzerliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzerliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +19,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Stefan" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -58,6 +61,21 @@
     &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Ipadkofferleihsystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -103,20 +121,41 @@
       <updated>1689705987542</updated>
     </task>
     <task id="LOCAL-00006" summary="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
-      <created>1689706121860</created>
+      <created>1690786856293</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1689706121860</updated>
+      <updated>1690786856293</updated>
     </task>
-    <task id="LOCAL-00007" summary="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer">
-      <created>1689762473458</created>
+    <task id="LOCAL-00007" summary="Implementierung der Speicherfunktion für die Benutzerliste.">
+      <created>1690804299864</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1689762473458</updated>
+      <updated>1690804299864</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Implementierung der Speicherfunktion für die Benutzerliste.">
+      <created>1690804476936</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690804476936</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Verschlankung des Exception-Handlings">
+      <created>1690808852878</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690808852878</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
+      <created>1690810507176</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690810507176</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -125,12 +164,17 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Stefan" />
+                        <option value="origin/Stefan" />
                       </list>
                     </value>
                   </entry>
@@ -148,6 +192,9 @@
     <MESSAGE value="Kommentare ergänzt." />
     <MESSAGE value="istReserviert-Methode um Koffer-Objekt erweitert." />
     <MESSAGE value="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer" />
-    <option name="LAST_COMMIT_MESSAGE" value="AlleReservierungenAusgeben angepasst auf Ausgabe der Koffernummer" />
+    <MESSAGE value="Implementierung der Speicherfunktion für die Benutzerliste." />
+    <MESSAGE value="Verschlankung des Exception-Handlings" />
+    <MESSAGE value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
+    <option name="LAST_COMMIT_MESSAGE" value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
   </component>
 </project>

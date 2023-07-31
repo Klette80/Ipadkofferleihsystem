@@ -1,28 +1,24 @@
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
-import java.io.IOException;
+import java.io.*;
 
 // Das Objekt wird nach der Initialisierung in der Lage sein, mithilfe seiner Methoden eine
-// Reservierungsliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
+// Benutzerliste zu speichern bzw. zu laden. Dieser Prozess kann auf verschiedene Weisen
 // durchgeführt werden, wir verwenden hier die Java-Möglichkeit des Serialisierens bzw. Deserialisierens
 // von Objekten. Dabei wird ein Objekt zunächst auf seine Attribute zusammengeschrumpft und diese
 // dann in einer Datei gespeichert.
 // Damit dieser Prozess funktioniert, müssen alle serialisierbaren Objekte die Standartbibliothek
 // "Serializable" implementieren.
-public class KompositumSerializer {
+public class BenutzerSerializer {
 
-    public KompositumSerializer() {}
+    public BenutzerSerializer() {}
 
-    public void speichern(Reservierungsliste l) throws IOException {
+    public void speichern(Benutzerliste l) throws IOException {
         // Diese Methode serialisiert eine übergebene Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Erstellen der Datei für die
         // Reservierungsliste abfangen können.
         try {
             // Versuche, einen Anschlussstream zu erstellen, der eine Datei zum Speichern der Daten
             // erstellt.
-            FileOutputStream dateiAusgabe = new FileOutputStream("GespeicherteListe.ser");
+            FileOutputStream dateiAusgabe = new FileOutputStream("BenutzerListe.ser");
             // Versuche, Objektausgabe mit dem Dateiausgabenfluss zu verketten.
             ObjectOutputStream objektAusgabe = new ObjectOutputStream(dateiAusgabe);
 
@@ -33,7 +29,7 @@ public class KompositumSerializer {
             objektAusgabe.close();
         }
 
-        catch(IOException speichern){
+        catch(Exception speichern){
             // Wenn eine Ausnahme oder ein Fehler auftritt, wird normalerweise eine sogenannte
             // "Stacktrace"-Information erzeugt. Diese Information gibt Auskunft darüber, welche Methoden
             // aufgerufen wurden und in welcher Reihenfolge sie aufgerufen wurden, bevor der Fehler
@@ -48,25 +44,25 @@ public class KompositumSerializer {
         }
     }
 
-    public Reservierungsliste laden() throws IOException, ClassNotFoundException {
+    public Benutzerliste laden() throws IOException, ClassNotFoundException {
         // Diese Methode deserialisiert eine Reservierungsliste.
         // Die Methode muss einen möglichen kritischen Fehler beim Laden der Datei für die
         // Reservierungsliste abfangen können.
 
         // Wir versuchen, den Filestream mit einer Datei zu verketten. Existiert die Datei nicht,
         // wird sie automatisch erstellt.
-        try {FileInputStream dateiEingabe = new FileInputStream("GespeicherteListe.ser");
+        try {FileInputStream dateiEingabe = new FileInputStream("BenutzerListe.ser");
             // Der Objektinputstream wird mit dem Filestream verkettet.
             ObjectInputStream objektEingabe = new ObjectInputStream(dateiEingabe);
             // Das eingelesene/geladene Objekt wird zurückgegeben und muss dazu als Reservierungslistenobjekt gecastet werden ()
             //return (Reservierungsliste) is.readObject();
-            return (Reservierungsliste) objektEingabe.readObject();
+            return (Benutzerliste) objektEingabe.readObject();
         }
         catch (Exception laden) {
+            Benutzerliste bl = new Benutzerliste();
             //laden.printStackTrace();
-            Reservierungsliste rl = new Reservierungsliste();
-            //throw new IOException("Fehler beim Laden der Datei. Erstelle neue Datei.", laden);
-            return rl;
+            //throw new IOException("Fehler beim Laden der Datei. Erstelle neue Reservierungsliste", laden);
+            return bl;
         }
     }
 }

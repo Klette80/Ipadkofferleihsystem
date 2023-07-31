@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Date;
+//import java.util.Date;
+import java.time.LocalDate;
 
 public class Endknoten implements Knoten, Serializable
 {
@@ -11,7 +12,7 @@ public class Endknoten implements Knoten, Serializable
         return new Datenknoten(this, reservierung);
     }
 
-    public void stornieren(Date datum, Koffer koffer){
+    public void stornieren(LocalDate datum, Koffer koffer){
         System.out.println("Die Reservierung wurde nicht gefunden");
     }
 
@@ -24,7 +25,7 @@ public class Endknoten implements Knoten, Serializable
     }
 
     @Override
-    public boolean istReserviert(Date datum, Koffer koffer) {
+    public boolean istReserviert(LocalDate datum, Koffer koffer) {
         return false;
     }
 

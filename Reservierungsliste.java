@@ -1,7 +1,8 @@
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Array;
-import java.util.Date;
+//import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
@@ -9,15 +10,17 @@ public class Reservierungsliste implements Serializable {
     public Koffer[] kofferliste; //public für Test
     private Array[] speicherArray;
 
-    public Reservierungsliste() {
+    public Reservierungsliste() throws IOException {
         root = new Endknoten();
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[100];
         kofferliste[1] = koffer;
+        KompositumSerializer ks = new KompositumSerializer();
+        ks.speichern(this);
     }
 
     //Einen iPad-Koffer reservieren
-    public void reservieren(Date datum, String name, Koffer koffer) throws IOException {
+    public void reservieren(LocalDate datum, String name, Koffer koffer) throws IOException {
         //Prüfe, ob schon eine Reservierung vorliegt
         if (istReserviert(datum, koffer) == false) {
             Reservierung reservierung = new Reservierung(datum, name, koffer);
@@ -29,7 +32,7 @@ public class Reservierungsliste implements Serializable {
     }
 
     //Eine vorhandene iPad-Koffer-Reservierung stornieren
-    public void stornieren(Date datum, Koffer koffer) throws IOException {
+    public void stornieren(LocalDate datum, Koffer koffer) throws IOException {
         //Prüfe, ob zu löschender Datensatz root ist
         if (root.gibDaten().gibDatum() == datum) {
             System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " wurde gelöscht.");
@@ -40,7 +43,7 @@ public class Reservierungsliste implements Serializable {
         }
     }
 
-    public boolean istReserviert(Date datum, Koffer koffer) {
+    public boolean istReserviert(LocalDate datum, Koffer koffer) {
         // Prüfe, ob Koffer bereits reserviert ist
         return root.istReserviert(datum, koffer);
 
