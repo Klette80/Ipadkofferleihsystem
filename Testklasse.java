@@ -24,8 +24,8 @@ public class Testklasse {
         Main.benutzerliste.benutzerlisteAusgeben();
 
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
-        Main.benutzerliste.benutzerEinfuegen("Daniel", "Liebscher", "lida", "passwort");
-        Main.benutzerliste.benutzerEinfuegen("Daniel", "Simon", "sida", "passwort");
+        Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
+        Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
         Main.benutzerliste.benutzerAbmelden();
         Main.benutzerliste.benutzerAnmelden("sida", "passwort");
         Main.reservierungsliste.reservieren(datum3, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
