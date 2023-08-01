@@ -24,7 +24,6 @@ public class GUI {
 
         //Anzahl der Koffer ermitteln
         int kofferanzahl = Main.reservierungsliste.gibKofferzanzahl();
-        System.out.println("Kofferanzahl" + kofferanzahl);
         String[] koffers= new String[kofferanzahl];
         for (int j = 0;j<kofferanzahl;j++){
 
