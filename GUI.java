@@ -21,11 +21,15 @@ public class GUI {
         JTextField tf = new JTextField(20);
         tf.setVisible(true);
         panel.add(tf);
-        String[] koffers= new String[reservierungsliste.kofferliste.length];
-        for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
 
-            koffers[j]= "Koffer "+(j);
+        //Anzahl der Koffer ermitteln
+        int kofferanzahl = Main.reservierungsliste.gibKofferzanzahl();
+        String[] koffers= new String[kofferanzahl];
+        for (int j = 0;j<kofferanzahl;j++){
+
+            koffers[j]= "Koffer "+(j+1);
         }
+
         final JComboBox<String> cb = new JComboBox<String>(koffers);
         cb.setVisible(true);
         panel.add(cb);
@@ -42,7 +46,7 @@ public class GUI {
                     System.out.println("Kein Name eingegeben");
 
                 }
-                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, reservierungsliste.kofferliste[cb.getSelectedIndex()+1]).setPickedDate();
                 System.out.println("GUI: Ende");
                 System.out.println(reservierungsliste.gewaehltesDatum);
 
@@ -52,7 +56,6 @@ public class GUI {
 
                 LocalDate pickedDate = LocalDate.of(year, month, day);
                 System.out.println("GUI:ActionListener Datum :" + pickedDate);
-                System.out.println("gewählte Koffernummer "+ cb.getSelectedIndex());
                 if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()]) == true) {
                     frame.dispose();
                     JDialog end = new JDialog();
@@ -69,7 +72,7 @@ public class GUI {
 
                 } else {
                     try {
-                        reservierungsliste.reservieren(pickedDate, tf.getText(), reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+                        reservierungsliste.reservieren(pickedDate, tf.getText(), reservierungsliste.kofferliste[cb.getSelectedIndex()+1]);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
