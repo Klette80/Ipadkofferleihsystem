@@ -84,6 +84,7 @@ public class Reservierungsliste implements Serializable {
             System.out.println("Der Koffer mit der Nummer " + nummer + " existiert nicht.");
         } else {
             kofferliste[nummer] = null;
+            kofferanzahl--;
             System.out.println("Der Koffer mit der Nummer " + nummer + " wurde entfernt.");
         }
     }
