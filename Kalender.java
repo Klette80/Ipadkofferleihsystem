@@ -69,9 +69,6 @@ public class Kalender {
             }
             p1.add(button[x]);
         }
-
-
-
         p2.add(next);
         d.add(p1, BorderLayout.CENTER);
         d.add(p2, BorderLayout.SOUTH);
@@ -91,6 +88,10 @@ public class Kalender {
         cal.set(year, month, 1);
         int dayOfWeek = cal.get(java.util.Calendar.DAY_OF_WEEK);
         int daysInMonth = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
+        for(int i =6;i<13;i++){
+            button[i].setText("");
+            button[i].setBackground(Color.white);
+        }
         for (int i = 6 + dayOfWeek, day = 1; day <= daysInMonth; i++, day++) {
             button[i].setText("" + day);
             button[i].setBackground(Color.white);
