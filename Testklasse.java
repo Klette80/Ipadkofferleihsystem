@@ -13,6 +13,8 @@ public class Testklasse {
     public LocalDate datum4;
 
     public Testklasse() throws IOException {
+
+        Main.reservierungsliste.neuerKoffer(2);
         Main.reservierungsliste.alleReservierungenAusgeben();
         /*
         datum1 = LocalDate.of(2023, 7, 1);
