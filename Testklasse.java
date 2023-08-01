@@ -22,7 +22,7 @@ public class Testklasse {
         Main.reservierungsliste.alleReservierungenAusgeben();
         Main.benutzerliste.benutzerlisteAusgeben();
 
-        /*
+
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
         Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
         Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
@@ -34,7 +34,7 @@ public class Testklasse {
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
         //Main.benutzerliste.benutzerLoeschen("sida");
         Main.benutzerliste.benutzerLoeschen("admin");
-         */
+
 
         //Main.reservierungsliste.reservieren(datum1, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
 
