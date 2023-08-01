@@ -7,7 +7,8 @@ import java.time.LocalDate;
 public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
-    public Koffer[] kofferliste; //public für Test
+    public Koffer[] kofferliste;
+    private int kofferanzahl;
     private Array[] speicherArray;
     public String gewaehltesDatum;
 
@@ -16,6 +17,7 @@ public class Reservierungsliste implements Serializable {
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[100];
         kofferliste[1] = koffer;
+        kofferanzahl = 1;
         KompositumSerializer ks = new KompositumSerializer();
         ks.speichern(this);
     }
@@ -61,6 +63,7 @@ public class Reservierungsliste implements Serializable {
         } else {
             Koffer koffer = new Koffer(nummer);
             kofferliste[nummer] = koffer;
+            kofferanzahl++;
             System.out.println("Der Koffer mit der Nummer " + nummer + " wurde angelegt.");
         }
     }
@@ -87,6 +90,10 @@ public class Reservierungsliste implements Serializable {
 
     public void speichern() throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
+    }
+
+    public int gibKofferzanzahl(){
+        return kofferanzahl;
     }
 
 }

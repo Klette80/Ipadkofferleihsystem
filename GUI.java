@@ -21,11 +21,16 @@ public class GUI {
         JTextField tf = new JTextField(20);
         tf.setVisible(true);
         panel.add(tf);
-        String[] koffers= new String[10];
-        for (int j = 0;j<10;j++){
 
-            koffers[j]= "Koffer "+(j);
+        //Anzahl der Koffer ermitteln
+        int kofferanzahl = Main.reservierungsliste.gibKofferzanzahl();
+        System.out.println("Kofferanzahl" + kofferanzahl);
+        String[] koffers= new String[kofferanzahl];
+        for (int j = 0;j<kofferanzahl;j++){
+
+            koffers[j]= "Koffer "+(j+1);
         }
+
         final JComboBox<String> cb = new JComboBox<String>(koffers);
         cb.setVisible(true);
         panel.add(cb);

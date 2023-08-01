@@ -14,7 +14,7 @@ public class Testklasse {
 
     public Testklasse() throws IOException {
 
-        datum1 = LocalDate.of(2023, 6, 1);
+        datum1 = LocalDate.of(2023, 7, 1);
         datum2 = LocalDate.of(2023, 3, 9);
         datum3 = LocalDate.of(2023, 10, 2);
         datum4 = LocalDate.of(2024, 9, 29);
@@ -34,7 +34,7 @@ public class Testklasse {
         //Main.benutzerliste.benutzerLoeschen("sida");
         Main.benutzerliste.benutzerLoeschen("admin");
 
-        //Main.reservierungsliste.reservieren(datum1, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
+        Main.reservierungsliste.reservieren(datum1, Main.benutzerliste.gibNameAngemeldeterBenutzer(), Main.reservierungsliste.kofferliste[1]);
 
         Main.reservierungsliste.alleReservierungenAusgeben();
         Main.benutzerliste.benutzerlisteAusgeben();
