@@ -21,7 +21,6 @@ public class Main {
             benutzerliste = bs.laden();
 
         Testklasse test = new Testklasse();
-        reservierungsliste.alleReservierungenAusgeben();
 
         // Lade die GUI
         GUI gui = new GUI(reservierungsliste);

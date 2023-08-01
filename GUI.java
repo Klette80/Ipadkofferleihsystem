@@ -46,7 +46,7 @@ public class GUI {
                     System.out.println("Kein Name eingegeben");
 
                 }
-                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, reservierungsliste.kofferliste[cb.getSelectedIndex()+1]).setPickedDate();
                 System.out.println("GUI: Ende");
                 System.out.println(reservierungsliste.gewaehltesDatum);
 
@@ -72,7 +72,7 @@ public class GUI {
 
                 } else {
                     try {
-                        reservierungsliste.reservieren(pickedDate, tf.getText(), reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+                        reservierungsliste.reservieren(pickedDate, tf.getText(), reservierungsliste.kofferliste[cb.getSelectedIndex()+1]);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
