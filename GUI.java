@@ -22,12 +22,11 @@ public class GUI {
         tf.setVisible(true);
         panel.add(tf);
 
-        //Anzahl der Koffer ermitteln
-        int kofferanzahl = Main.reservierungsliste.gibKofferzanzahl();
-        String[] koffers= new String[kofferanzahl];
-        for (int j = 0;j<kofferanzahl;j++){
+        String[] koffers= new String[Main.reservierungsliste.kofferliste.length];
+        for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
 
-            koffers[j]= "Koffer "+(j+1);
+            koffers[j] = "Koffer " + Main.reservierungsliste.kofferliste[j].gibNummer();
+
         }
 
         final JComboBox<String> cb = new JComboBox<String>(koffers);
@@ -46,7 +45,7 @@ public class GUI {
                     System.out.println("Kein Name eingegeben");
 
                 }
-                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, reservierungsliste.kofferliste[cb.getSelectedIndex()+1]).setPickedDate();
+                reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[koffernr]).setPickedDate();
                 System.out.println("GUI: Ende");
                 System.out.println(reservierungsliste.gewaehltesDatum);
 
@@ -72,7 +71,7 @@ public class GUI {
 
                 } else {
                     try {
-                        reservierungsliste.reservieren(pickedDate, tf.getText(), reservierungsliste.kofferliste[cb.getSelectedIndex()+1]);
+                        reservierungsliste.reservieren(pickedDate, tf.getText(), Main.reservierungsliste.kofferliste[koffernr]);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -83,7 +82,7 @@ public class GUI {
                     end.setLocation(430, 100);
                     JPanel panel_end = new JPanel();
                     end.add(panel_end);
-                    JLabel lbl_end = new JLabel("Koffer " + (cb.getSelectedIndex() + 1) + " für " + tf.getText() + " am Datum " + reservierungsliste.gewaehltesDatum + " reserviert.");
+                    JLabel lbl_end = new JLabel("Koffer " + Main.reservierungsliste.kofferliste[koffernr].gibNummer() + " für " + tf.getText() + " am Datum " + reservierungsliste.gewaehltesDatum + " reserviert.");
                     lbl_end.setVisible(true);
                     panel_end.add(lbl_end);
                     end.pack();

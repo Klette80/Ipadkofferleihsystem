@@ -8,16 +8,14 @@ public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
     public Koffer[] kofferliste;
-    private int kofferanzahl;
     private Array[] speicherArray;
     public String gewaehltesDatum;
 
     public Reservierungsliste() throws IOException {
         root = new Endknoten();
         Koffer koffer = new Koffer(1);
-        kofferliste = new Koffer[100];
-        kofferliste[1] = koffer;
-        kofferanzahl = 1;
+        kofferliste = new Koffer[1];
+        kofferliste[0] = koffer;
         KompositumSerializer ks = new KompositumSerializer();
         ks.speichern(this);
     }
@@ -57,44 +55,114 @@ public class Reservierungsliste implements Serializable {
     }
 
     //Koffer hinzufügen
-    public void neuerKoffer(int nummer) {
-        if (kofferliste[nummer] != null) {
-            System.out.println("Diese Koffernummer ist bereits vergeben");
+    public void neuerKoffer(int nummer) throws IOException {
+        Koffer neuerKoffer = new Koffer(nummer);
+        //Wenn die Kofferliste leer ist, wird der Koffer als erster eingefügt
+        if (kofferliste[0] == null) {
+            kofferliste[0] = neuerKoffer;
+            System.out.println("Der Koffer mit der Nummer " + kofferliste[0].gibNummer() + " wurde angelegt.");
         } else {
-            Koffer koffer = new Koffer(nummer);
-            kofferliste[nummer] = koffer;
-            kofferanzahl++;
-            System.out.println("Der Koffer mit der Nummer " + nummer + " wurde angelegt.");
-        }
-    }
-
-    //alle angelegenten Koffer anzeigen
-    public void kofferAnzeigen() {
-        System.out.println("Lister der zur Verfügung stehenden Koffer:");
-        for (int i = 1; i < kofferliste.length; i++) {
-            if (kofferliste[i] != null) {
-                System.out.println("Koffernummer " + i);
+            //Prüft, ob ein Koffer mit der gleichen Nummer bereits existiert
+            boolean kofferBereitsVorhanden = false;
+            for (int i = 0; i < kofferliste.length; i++){
+                if(kofferliste[i].gibNummer() == nummer){
+                    kofferBereitsVorhanden = true;
+                    System.out.println("Diese Koffernummer ist bereits vergeben");
+                    break;
+                }
+            }
+            //Wenn der Koffer noch nicht existiert
+            if (kofferBereitsVorhanden == false) {
+                Koffer[] neueKofferliste = new Koffer[kofferliste.length + 1];
+                int zaehlerEinfuegepositon = 0;
+                int zaehlerPositionKofferarray = 0;
+                //Füge die Koffer aufsteigend in die neue Kofferliste ein
+                while (zaehlerEinfuegepositon < neueKofferliste.length) {
+                    //Wenn die Koffernummer im Kofferarray kleiner ist als die neue Koffernummer, füge den Koffer aus dem Kofferarray ein
+                    if (zaehlerPositionKofferarray < kofferliste.length && kofferliste[zaehlerPositionKofferarray].gibNummer() < nummer) {
+                        neueKofferliste[zaehlerEinfuegepositon] = kofferliste[zaehlerPositionKofferarray];
+                        zaehlerEinfuegepositon++;
+                        zaehlerPositionKofferarray++;
+                    } else {
+                        //Ansonsten füge den neuen Koffer ein
+                        neueKofferliste[zaehlerEinfuegepositon] = neuerKoffer;
+                        System.out.println("Der Koffer mit der Nummer " + neueKofferliste[zaehlerEinfuegepositon].gibNummer() + " wurde angelegt.");
+                        zaehlerEinfuegepositon++;
+                        //Fülle den Rest der neuen Kofferliste mit dem restlichen Inhalt des Kofferarrays auf
+                        while (zaehlerEinfuegepositon < neueKofferliste.length) {
+                            neueKofferliste[zaehlerEinfuegepositon] = kofferliste[zaehlerPositionKofferarray];
+                            zaehlerEinfuegepositon++;
+                            zaehlerPositionKofferarray++;
+                        }
+                    }
+                }
+                //Mache das die neue Kofferliste zur Kofferliste
+                kofferliste = neueKofferliste;
+                speichern();
             }
         }
     }
 
     //Koffer entfernen
-    public void kofferEntfernen(int nummer) {
-        if (kofferliste[nummer] == null) {
-            System.out.println("Der Koffer mit der Nummer " + nummer + " existiert nicht.");
+    public void kofferEntfernen(int nummer) throws IOException {
+        if (kofferliste.length == 1) {
+            if (kofferliste[0].gibNummer() == nummer) {
+                System.out.println("Der Koffer kann nicht gelöscht werden. In der Auswahlliste muss mindestens ein Koffer enthalten sein.");
+            } else {
+                System.out.println("Der Koffer mit der Nummer " + nummer + " existiert nicht.");
+            }
         } else {
-            kofferliste[nummer] = null;
-            kofferanzahl--;
-            System.out.println("Der Koffer mit der Nummer " + nummer + " wurde entfernt.");
+            boolean kofferBereitsVorhanden = false;
+            for (int i = 0; i < kofferliste.length; i++) {
+                if (kofferliste[i].gibNummer() == nummer) {
+                    kofferBereitsVorhanden = true;
+                    break;
+                }
+            }
+            if (kofferBereitsVorhanden == true) {
+                Koffer[] neueKofferliste = new Koffer[kofferliste.length - 1];
+                int zaehlerEinfuegepositon = 0;
+                int zaehlerPositionKofferarray = 0;
+                //Füge die Koffer ohne den zu löschenden Koffer aufsteigend in die neue Kofferliste ein
+                while (zaehlerPositionKofferarray < kofferliste.length) {
+                    //Wenn die Koffernummer nicht die zu löschende Nummer ist
+                    if (kofferliste[zaehlerPositionKofferarray].gibNummer() != nummer) {
+                        neueKofferliste[zaehlerEinfuegepositon] = kofferliste[zaehlerPositionKofferarray];
+                        zaehlerEinfuegepositon++;
+                        zaehlerPositionKofferarray++;
+                    } else {
+                        //Überspringe den zu löschenden Koffer
+                        System.out.println("Der Koffer mit der Nummer " + nummer + " wurde entfernt.");
+                        zaehlerPositionKofferarray++;
+                        //Fülle den Rest der neuen Kofferliste mit dem restlichen Inhalt des Kofferarrays auf
+                        while (zaehlerPositionKofferarray < kofferliste.length) {
+                            neueKofferliste[zaehlerEinfuegepositon] = kofferliste[zaehlerPositionKofferarray];
+                            zaehlerEinfuegepositon++;
+                            zaehlerPositionKofferarray++;
+                        }
+                    }
+                }
+                //Mache das die neue Kofferliste zur Kofferliste
+                kofferliste = neueKofferliste;
+                speichern();
+            } else {
+                System.out.println("Der Koffer mit der Nummer " + nummer + " existiert nicht.");
+            }
         }
     }
 
-    public void speichern() throws IOException {
-        Main.ks.speichern(Main.reservierungsliste);
+    //alle angelegten Koffer anzeigen
+    public void kofferAnzeigen() {
+        System.out.println("Liste der zur Verfügung stehenden Koffer:");
+        for (int i = 0; i < kofferliste.length; i++) {
+            if (kofferliste[i] != null) {
+                System.out.println("Koffernummer " + kofferliste[i].gibNummer());
+            }
+        }
     }
 
-    public int gibKofferzanzahl(){
-        return kofferanzahl;
+    public void speichern () throws IOException {
+        Main.ks.speichern(Main.reservierungsliste);
     }
 
 }
