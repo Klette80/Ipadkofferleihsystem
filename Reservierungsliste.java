@@ -103,16 +103,6 @@ public class Reservierungsliste implements Serializable {
         }
     }
 
-    //alle angelegenten Koffer anzeigen
-    public void kofferAnzeigen() {
-        System.out.println("Liste der zur Verfügung stehenden Koffer:");
-        for (int i = 0; i < kofferliste.length; i++) {
-            if (kofferliste[i] != null) {
-                System.out.println("Koffernummer " + kofferliste[i].gibNummer());
-            }
-        }
-    }
-
     //Koffer entfernen
     public void kofferEntfernen(int nummer) throws IOException {
         if (kofferliste.length == 1) {
@@ -160,6 +150,17 @@ public class Reservierungsliste implements Serializable {
             }
         }
     }
+
+    //alle angelegten Koffer anzeigen
+    public void kofferAnzeigen() {
+        System.out.println("Liste der zur Verfügung stehenden Koffer:");
+        for (int i = 0; i < kofferliste.length; i++) {
+            if (kofferliste[i] != null) {
+                System.out.println("Koffernummer " + kofferliste[i].gibNummer());
+            }
+        }
+    }
+
     public void speichern () throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
     }
