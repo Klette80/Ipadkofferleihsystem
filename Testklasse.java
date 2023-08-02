@@ -13,6 +13,10 @@ public class Testklasse {
     public LocalDate datum4;
 
     public Testklasse() throws IOException {
+        Main.benutzerliste.benutzerAnmelden("admin", "admin");
+        Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
+        Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
+        Main.benutzerliste.benutzerAbmelden();
 
         //Main.reservierungsliste.alleReservierungenAusgeben();
         //Main.reservierungsliste.reservierungenBenutzerAnzeigen("Peter");

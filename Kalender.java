@@ -88,7 +88,7 @@ public class Kalender {
         cal.set(year, month, 1);
         int dayOfWeek = cal.get(java.util.Calendar.DAY_OF_WEEK);
         int daysInMonth = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
-        for(int i =6;i<13;i++){
+        for(int i =7;i<13;i++){
             button[i].setText("");
             button[i].setBackground(Color.white);
         }

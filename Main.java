@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.InvalidClassException;
+import java.time.LocalDate;
 import java.util.*;
 import java.nio.file.*;
 
@@ -20,10 +21,11 @@ public class Main {
 
             benutzerliste = bs.laden();
 
-        Testklasse test = new Testklasse();
+
+       Testklasse test = new Testklasse();
 
         // Lade die GUI
-        GUI gui = new GUI(reservierungsliste);
+       GUI gui = new GUI(reservierungsliste, benutzerliste);
 
     }
 }
