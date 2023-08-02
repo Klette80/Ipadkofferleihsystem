@@ -22,8 +22,6 @@ public class GUI {
         tf.setVisible(true);
         panel.add(tf);
 
-        //Anzahl der Koffer ermitteln
-        //int kofferanzahl = Main.reservierungsliste.gibKofferzanzahl();
         String[] koffers= new String[Main.reservierungsliste.kofferliste.length];
         for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
 
