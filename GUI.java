@@ -27,7 +27,8 @@ public class GUI {
         String[] koffers= new String[Main.reservierungsliste.kofferliste.length];
         for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
 
-            koffers[j]= "Koffer "+ Main.reservierungsliste.kofferliste[j].gibNummer();
+            koffers[j] = "Koffer " + Main.reservierungsliste.kofferliste[j].gibNummer();
+
         }
 
         final JComboBox<String> cb = new JComboBox<String>(koffers);

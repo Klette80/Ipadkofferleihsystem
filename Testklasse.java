@@ -14,8 +14,11 @@ public class Testklasse {
 
     public Testklasse() throws IOException {
 
-        Main.reservierungsliste.neuerKoffer(2);
-        Main.reservierungsliste.alleReservierungenAusgeben();
+        //Main.reservierungsliste.kofferAnzeigen();
+        //Main.reservierungsliste.kofferEntfernen(3);
+        //Main.reservierungsliste.kofferAnzeigen();
+        //Main.reservierungsliste.neuerKoffer(1);
+        //Main.reservierungsliste.alleReservierungenAusgeben();
         /*
         datum1 = LocalDate.of(2023, 7, 1);
         datum2 = LocalDate.of(2023, 3, 9);
