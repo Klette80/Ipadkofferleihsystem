@@ -141,7 +141,7 @@ public class Reservierungsliste implements Serializable {
                         zaehlerEinfuegepositon++;
                         zaehlerPositionKofferarray++;
                     } else {
-                        //Ansonsten füge den neuen Koffer ein
+                        //Überspringe den zu löschenden Koffer
                         System.out.println("Der Koffer mit der Nummer " + nummer + " wurde entfernt.");
                         zaehlerPositionKofferarray++;
                         //Fülle den Rest der neuen Kofferliste mit dem restlichen Inhalt des Kofferarrays auf
