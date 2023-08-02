@@ -14,11 +14,14 @@ public class Testklasse {
 
     public Testklasse() throws IOException {
 
+        //Main.reservierungsliste.alleReservierungenAusgeben();
+        //Main.reservierungsliste.reservierungenBenutzerAnzeigen("Peter");
+
         //Main.reservierungsliste.kofferAnzeigen();
         //Main.reservierungsliste.kofferEntfernen(3);
         //Main.reservierungsliste.kofferAnzeigen();
         //Main.reservierungsliste.neuerKoffer(1);
-        Main.reservierungsliste.alleReservierungenAusgeben();
+        //Main.reservierungsliste.alleReservierungenAusgeben();
         /*
         datum1 = LocalDate.of(2023, 7, 1);
         datum2 = LocalDate.of(2023, 3, 9);

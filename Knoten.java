@@ -9,6 +9,7 @@ public interface Knoten
     public Knoten gibNaechster();
     public boolean istReserviert(LocalDate datum, Koffer koffer);
     public void alleReservierungenAusgeben(int i);
+    public int reservierungenBenutzerAnzeigen(String name);
 
 }
 

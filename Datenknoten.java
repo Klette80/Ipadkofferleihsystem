@@ -47,6 +47,14 @@ public class Datenknoten implements Knoten, Serializable {
         naechster.alleReservierungenAusgeben(j);
     }
 
+    public int reservierungenBenutzerAnzeigen(String name){
+        int i = 0;
+        if (daten.gibName().compareTo(name)==0){
+            i = 1;
+        }
+        return i + naechster.reservierungenBenutzerAnzeigen(name);
+    }
+
     public Reservierung gibDaten() {
         return daten;
     }

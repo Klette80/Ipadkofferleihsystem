@@ -54,6 +54,31 @@ public class Reservierungsliste implements Serializable {
         root.alleReservierungenAusgeben(1);
     }
 
+    //alle Reservierungen eines Benutzers anzeigen
+    public Reservierung[] reservierungenBenutzerAnzeigen(String name){
+        //Anzahl der Reservierungen ermitteln
+        int anzahl = root.reservierungenBenutzerAnzeigen(name);
+        //Wenn keine Reservierungen gefunden wurden
+        if (anzahl == 0){
+            System.out.println("Sie haben keinen Reservierungen.");
+            return null;
+        } else {
+            //Array mit der Anzahl der gefundenen Reservierugnen anlegen
+            Reservierung reservierungen[] = new Reservierung[anzahl];
+            Knoten aktuellerKnoten = root;
+            int einfuegeposition = 0;
+            //Array mit den Reservierungen befüllen
+            while (aktuellerKnoten.gibDaten() != null && einfuegeposition < anzahl) {
+                if (aktuellerKnoten.gibDaten().gibName().compareTo(name) == 0) {
+                    reservierungen[einfuegeposition] = aktuellerKnoten.gibDaten();
+                    einfuegeposition++;
+                }
+                aktuellerKnoten = aktuellerKnoten.gibNaechster();
+            }
+            return reservierungen;
+        }
+    }
+
     //Koffer hinzufügen
     public void neuerKoffer(int nummer) throws IOException {
         Koffer neuerKoffer = new Koffer(nummer);
