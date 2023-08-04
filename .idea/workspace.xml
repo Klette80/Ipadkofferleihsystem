@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
+      <change afterPath="$PROJECT_DIR$/BenutzerListe.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.$Klassendiagramm.drawio.bkp" beforeDir="false" afterPath="$PROJECT_DIR$/.$Klassendiagramm.drawio.bkp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BenutzerListe.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Benutzerliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Benutzerliste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/Klassendiagramm.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Datenknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Endknoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Knoten.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Knoten.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Testklasse.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Stefan" />
+        <entry key="$PROJECT_DIR$" value="DanielS" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -196,5 +202,8 @@
     <MESSAGE value="Verschlankung des Exception-Handlings" />
     <MESSAGE value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
     <option name="LAST_COMMIT_MESSAGE" value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Ipadkofferleihsystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1690880443338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
