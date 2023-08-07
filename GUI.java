@@ -36,7 +36,8 @@ public class GUI {
             public void actionPerformed(ActionEvent e) {
                 String nutzer = tf_nutzer.getText();
                 String pw = tf_passwort.getText();
-                benutzerliste.benutzerAnmelden(tf_nutzer.getText(), tf_passwort.getText());
+                //benutzerliste.benutzerAnmelden(tf_nutzer.getText(), tf_passwort.getText());
+                benutzerliste.baRekursiv(tf_nutzer.getText(), tf_passwort.getText());
                 //prüfe, ob Benutzer und PW stimmen. Wenn nicht: Pop-Up und Rückkehr zu Anmeldemaske, sonst User- oder admin GUI
                 if (benutzerliste.gibAngemeldeterBenutzer() == null) {
                     JDialog falsch = new JDialog();

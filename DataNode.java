@@ -50,4 +50,13 @@ public class DataNode implements Node, Serializable
         System.out.println("Vorname: " + inhalt.gibVorname() + " Nachname: " + inhalt.gibName() + " Benutzername: " + inhalt.gibBenutzername());
         naechster.benutzerlisteAusgeben();
     }
+
+    public Benutzer baRekursiv(String benutzername, String passwort) {
+        if (this.inhalt.gibBenutzername().equals(benutzername) && this.inhalt.gibPasswort().equals(passwort)) {
+            return this.inhalt;
+        }
+        else {
+            return naechster.baRekursiv(benutzername, passwort);
+        }
+    }
 }

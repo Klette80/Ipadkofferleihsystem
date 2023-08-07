@@ -27,4 +27,8 @@ public class EndNode implements Node, Serializable
     public void benutzerlisteAusgeben(){
         System.out.println("Ende der Liste");
     }
+
+    public Benutzer baRekursiv(String benutzername, String passwort) {
+        return null;
+    }
 }
