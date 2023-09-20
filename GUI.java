@@ -123,7 +123,7 @@ public class GUI {
                                     LocalDate pickedDate = LocalDate.of(year, month, day);
 
                                     //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
-                                    if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()]) == true) {
+                                    if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()])) {
                                         frame.dispose();
                                         JDialog end = new JDialog();
                                         end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -196,7 +196,7 @@ public class GUI {
                             String[] reservierungen = new String[reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length];
 
                             for (int i = 0; i < reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length; i++) {
-                                reservierungen[i] = "Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].koffer.gibNummer() + ", Datum: " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].datum;
+                                reservierungen[i] = "Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibKoffer().gibNummer() + ", Datum: " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibDatum();
                             }
                             final JComboBox<String> cb_reservierungen = new JComboBox<String>(reservierungen);
                             JButton btn_stornieren = new JButton("OK");
@@ -215,7 +215,7 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     //Stornieren
-                                    String storniert = new String("Reservierung von Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer.gibNummer() + " am " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum + " storniert.");
+                                    String storniert = new String("Reservierung von Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer().gibNummer() + " am " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum() + " storniert.");
                                     try {
                                         reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum, reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer);
                                     } catch (IOException ex) {
@@ -766,7 +766,7 @@ public class GUI {
                             String[] reservierungen = new String[reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length];
 
                             for(int i =0;i<reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length;i++){
-                                reservierungen[i]="Koffer "+  reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].koffer.gibNummer()+ ", Datum: "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].datum;
+                                reservierungen[i]="Koffer "+  reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibKoffer().gibNummer()+ ", Datum: "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibDatum();
                             }
                             final JComboBox<String> cb_reservierungen = new JComboBox<String>(reservierungen);
                             JButton btn_stornieren = new JButton("OK");
@@ -782,9 +782,9 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     //Stornieren
-                                    String storniert = new String("Reservierung von Koffer "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer.gibNummer()+" am "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum+" storniert.");
+                                    String storniert = new String("Reservierung von Koffer "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer().gibNummer()+" am "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum() + " storniert.");
                                     try {
-                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum,reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer);
+                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum(),reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer());
                                     } catch (IOException ex) {
                                         throw new RuntimeException(ex);
                                     }
