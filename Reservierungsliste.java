@@ -21,10 +21,11 @@ public class Reservierungsliste implements Serializable {
     }
 
     //Einen iPad-Koffer reservieren
-    public void reservieren(LocalDate datum, String name, Koffer koffer) throws IOException {
+    public void reservieren(LocalDate datum, int stunde, String name, Koffer koffer) throws IOException {
         //Prüfe, ob schon eine Reservierung vorliegt
-        if (istReserviert(datum, koffer) == false) {
-            Reservierung reservierung = new Reservierung(datum, name, koffer);
+
+        if (istReserviert(datum, stunde, koffer) == false) {
+            Reservierung reservierung = new Reservierung(datum, stunde, name, koffer);
             root = root.reservieren(reservierung);
             speichern();
         } else {
@@ -33,20 +34,20 @@ public class Reservierungsliste implements Serializable {
     }
 
     //Eine vorhandene iPad-Koffer-Reservierung stornieren
-    public void stornieren(LocalDate datum, Koffer koffer) throws IOException {
+    public void stornieren(LocalDate datum, int stunde, Koffer koffer) throws IOException {
         //Prüfe, ob zu löschender Datensatz root ist
-        if (root.gibDaten().gibDatum() == datum) {
-            System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " wurde gelöscht.");
+        if (root.gibDaten().gibDatum() == datum && root.gibDaten().gibStunde() == stunde) {
+            System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " in Stunde " + root.gibDaten().gibStunde() + " wurde gelöscht.");
             root = root.gibNaechster();
             speichern();
         } else {
-            root.stornieren(datum, koffer);
+            root.stornieren(datum, stunde, koffer);
         }
     }
 
-    public boolean istReserviert(LocalDate datum, Koffer koffer) {
+    public boolean istReserviert(LocalDate datum, int stunde, Koffer koffer) {
         // Prüfe, ob Koffer bereits reserviert ist
-        return root.istReserviert(datum, koffer);
+        return root.istReserviert(datum, stunde, koffer);
 
     }
 
@@ -60,7 +61,7 @@ public class Reservierungsliste implements Serializable {
         int anzahl = root.reservierungenBenutzerAnzeigen(name);
         //Wenn keine Reservierungen gefunden wurden
         if (anzahl == 0){
-            System.out.println("Sie haben keinen Reservierungen.");
+            System.out.println("Sie haben keine Reservierungen.");
             return null;
         } else {
             //Array mit der Anzahl der gefundenen Reservierugnen anlegen

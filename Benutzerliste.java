@@ -36,6 +36,14 @@ public class Benutzerliste implements Serializable {
         }
     }
 
+    public void baRekursiv(String benutzername, String passwort) {
+        if (erster.baRekursiv(benutzername, passwort) == null) {
+            System.out.println("Der Benutzername oder das Passwort wurden nicht gefunden.");
+        }
+        else{
+        angemeldeterBenutzer = erster.baRekursiv(benutzername, passwort);}
+    }
+
     //Benutzer abmelden
     public void benutzerAbmelden(){
         angemeldeterBenutzer = null;

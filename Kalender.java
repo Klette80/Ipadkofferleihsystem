@@ -37,7 +37,6 @@ public class Kalender {
         next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 month=month+1;
-                System.out.println(month);
                 if(month>11){
                     month=0;
                     year=year+1;
@@ -101,11 +100,11 @@ public class Kalender {
             int tag=day;
             LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
 
-            if (reservierungsliste.istReserviert(datum_1, koffer)==true) {
+           /* if (reservierungsliste.istReserviert(datum_1, koffer)==true) {
                 System.out.println("Kalender: Reservierung gefunden");
                 button[i].setBackground(Color.red);
             }
-
+*/
         }
 
         l.setText(sdf.format(cal.getTime()));
