@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -20,13 +21,10 @@ public class GUI {
       JTextField  tf_nutzer = new JTextField(20);
         JPasswordField tf_passwort = new JPasswordField(20);
         JButton btn_1 = new JButton("OK");
-
         panel_1.add(lbl_1);
         panel_1.add(tf_nutzer);
         panel_1.add(tf_passwort);
         panel_1.add(btn_1);
-
-
         frame.add(panel_1);
         frame.pack();
         frame.setVisible(true);
@@ -34,9 +32,11 @@ public class GUI {
         btn_1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nutzer = tf_nutzer.getText();
+              String nutzer = tf_nutzer.getText();
                 String pw = tf_passwort.getText();
+                //Benutzer mit eingegebenen Daten anmelden
                 benutzerliste.benutzerAnmelden(tf_nutzer.getText(), tf_passwort.getText());
+                //benutzerliste.baRekursiv(tf_nutzer.getText(), tf_passwort.getText());
                 //prüfe, ob Benutzer und PW stimmen. Wenn nicht: Pop-Up und Rückkehr zu Anmeldemaske, sonst User- oder admin GUI
                 if (benutzerliste.gibAngemeldeterBenutzer() == null) {
                     JDialog falsch = new JDialog();
@@ -49,6 +49,7 @@ public class GUI {
                     panel_falsch.add(lbl_falsch);
                     falsch.pack();
                     falsch.setVisible(true);
+
                 }
                 //Wenn Nutzer Admin ist: Admin Fenster öffnen
                 if(tf_nutzer.getText().equals("admin")){
@@ -109,7 +110,7 @@ public class GUI {
                             frame_reservieren.add(panel_reservieren);
                             frame_reservieren.pack();
                             frame_reservieren.setVisible(true);
-                            //Aktion bei OK
+                            //Aktion bei OK: Kalender öffnen und Datum wählen, Schulstunden-Pop-up-Fenster öffnen
                             btn_reservieren.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
@@ -121,45 +122,82 @@ public class GUI {
 
                                     LocalDate pickedDate = LocalDate.of(year, month, day);
 
-                                    //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
-                                    if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()]) == true) {
-                                        frame.dispose();
-                                        JDialog end = new JDialog();
-                                        end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                        end.setLocation(430, 100);
-                                        JPanel panel_end = new JPanel();
-                                        end.add(panel_end);
-                                        JLabel lbl_end = new JLabel("Keine Reservierung an diesem Datum möglich");
-                                        lbl_end.setVisible(true);
-                                        panel_end.add(lbl_end);
-                                        end.pack();
-                                        end.setVisible(true);
-
-
-                                    } else {
-                                        try {
-                                            reservierungsliste.reservieren(pickedDate, nutzer, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]);
-                                        } catch (IOException ex) {
-                                            throw new RuntimeException(ex);
+                                    //Fenster für Schulstunde erzeugen und öffnen
+                                    JDialog frame_schulstunde = new JDialog();
+                                    JPanel panel_schulstunde=new JPanel();
+                                    panel_schulstunde.setVisible(true);
+                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+reservierungsliste.gewaehltesDatum+" wählen");
+                                    panel_schulstunde.add(lbl_schulstunde);
+                                    for(int i =0;i<10;i++){
+                                        final int gewaehlte_stunde = i;
+                                        JButton btn_i=new JButton("Stunde "+i );
+                                        btn_i.setBackground(Color.white);
+                                        //wenn eine Reservierung vorliegt, mache den Button rot
+                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])){
+                                            btn_i.setBackground(Color.red);
                                         }
-                                        JDialog end_reservieren = new JDialog();
-                                        end_reservieren.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                        end_reservieren.setLocation(430, 100);
-                                        JPanel panel_end_reservieren = new JPanel();
-                                        end_reservieren.add(panel_end_reservieren);
-                                        JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + " reserviert.");
-                                        lbl_end_reservieren.setVisible(true);
-                                        panel_end_reservieren.add(lbl_end_reservieren);
-                                        end_reservieren.pack();
-                                        end_reservieren.setVisible(true);
+                                        panel_schulstunde.add(btn_i);
+                                        btn_i.addActionListener(new ActionListener() {
+                                            @Override
+                                            public void actionPerformed(ActionEvent e) {
+                                                //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
+                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])) {
+                                                    frame.dispose();
+                                                    JDialog end = new JDialog();
+                                                    end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end.setLocation(430, 100);
+                                                    JPanel panel_end = new JPanel();
+                                                    end.add(panel_end);
+                                                    JLabel lbl_end = new JLabel("Keine Reservierung in dieser Stunde möglich");
+                                                    lbl_end.setVisible(true);
+                                                    panel_end.add(lbl_end);
+                                                    end.pack();
+                                                    end.setVisible(true);
 
+                                                }
+                                                else {
+                                                    try {
+                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+
+                                                    } catch (IOException ex) {
+                                                        throw new RuntimeException(ex);
+                                                    }
+                                                    JDialog end_reservieren = new JDialog();
+                                                    end_reservieren.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end_reservieren.setLocation(430, 100);
+                                                    JPanel panel_end_reservieren = new JPanel();
+                                                    end_reservieren.add(panel_end_reservieren);
+                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + " in Stunde "+ gewaehlte_stunde+" reserviert.");
+                                                    lbl_end_reservieren.setVisible(true);
+                                                    panel_end_reservieren.add(lbl_end_reservieren);
+                                                    end_reservieren.pack();
+                                                    end_reservieren.setVisible(true);
+
+                                                }
+                                                //Reservieren Fenster verschrotten, Stunden Fenster verschrotten, Hauptframe wieder sichtbar machen
+                                                frame_reservieren.dispose();
+                                                frame_schulstunde.dispose();
+                                                frame.setVisible(true);
+                                            }
+                                        });
                                     }
-                                    //Reservieren Fenster verschrotten, Hauptframe wieder sichtbar machen
-                                    frame_reservieren.dispose();
-                                    frame.setVisible(true);
+                                    JButton btn_stunde_back=new JButton("Zurück");
+                                    btn_stunde_back.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            //Stunden Fenster schließen, Hauptfenster wieder sichtbar machen
+                                            frame_schulstunde.dispose();
+                                            frame.setVisible(true);
+                                        }
+                                    });
+                                    panel_schulstunde.add(btn_stunde_back);
+                                    frame_schulstunde.add(panel_schulstunde);
+                                    frame_schulstunde.pack();
+                                    frame_schulstunde.setVisible(true);
+
+
                                 }
                             });
-
 
                         }
                     });
@@ -195,10 +233,11 @@ public class GUI {
                             String[] reservierungen = new String[reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length];
 
                             for (int i = 0; i < reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length; i++) {
-                                reservierungen[i] = "Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].koffer.gibNummer() + ", Datum: " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].datum;
+                                reservierungen[i] = "Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibKoffer().gibNummer() + ", Datum: " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibDatum()+" Stunde" + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibStunde();
                             }
                             final JComboBox<String> cb_reservierungen = new JComboBox<String>(reservierungen);
                             JButton btn_stornieren = new JButton("OK");
+                            JButton btn_back=new JButton("Zurück");
 
                             lbl_stornieren.setVisible(true);
                             cb_reservierungen.setVisible(true);
@@ -206,6 +245,7 @@ public class GUI {
                             panel_stornieren.add(lbl_stornieren);
                             panel_stornieren.add(cb_reservierungen);
                             panel_stornieren.add(btn_stornieren);
+                            panel_stornieren.add(btn_back);
                             frame_stornieren.add(panel_stornieren);
                             frame_stornieren.pack();
                             frame_stornieren.setVisible(true);
@@ -214,9 +254,9 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     //Stornieren
-                                    String storniert = new String("Reservierung von Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer.gibNummer() + " am " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum + " storniert.");
+                                    String storniert = new String("Reservierung von Koffer " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer().gibNummer() + " am " + reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum() + " storniert.");
                                     try {
-                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum, reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer);
+                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum(),reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibStunde(), reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer());
                                     } catch (IOException ex) {
                                         throw new RuntimeException(ex);
                                     }
@@ -237,6 +277,14 @@ public class GUI {
                                     frame.setVisible(true);
                                 }
 
+                            });
+                            btn_back.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    //Stornieren Fenster verschrotten, Hauptframe wieder sichtbar machen
+                                    frame_stornieren.dispose();
+                                    frame.setVisible(true);
+                                }
                             });
 
 
@@ -341,6 +389,7 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     //Frame "abmelden" verschrotten, Frame 1 wieder aufbauen
+                                    benutzerliste.benutzerAbmelden();
                                     frame_abmelden.dispose();
                                     frame.remove(menu);
                                     tf_nutzer.setText("");
@@ -634,8 +683,8 @@ public class GUI {
 
 
                 }
-                //Nutzer-Fenster öffner
-                else{
+                //Wenn Nutzer in der Liste, Nutzer-Fenster öffnen
+                else if (benutzerliste.gibAngemeldeterBenutzer()!=null){
                     //Hauptframe leeren, mit Menu-Inhalt füllen
                     frame.remove(panel_1);
                     frame.setVisible(false);
@@ -687,6 +736,7 @@ public class GUI {
                             btn_reservieren.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
+
                                     reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
                                     //Aus Datum-String mache int-Datum
                                     int year = (1000 * (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(8))) + (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(9)));
@@ -695,40 +745,83 @@ public class GUI {
 
                                     LocalDate pickedDate = LocalDate.of(year, month, day);
 
-                                    //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
-                                    if (reservierungsliste.istReserviert(pickedDate, reservierungsliste.kofferliste[cb.getSelectedIndex()]) == true) {
-                                        frame.dispose();
-                                        JDialog end = new JDialog();
-                                        end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                        end.setLocation(430, 100);
-                                        JPanel panel_end = new JPanel();
-                                        end.add(panel_end);
-                                        JLabel lbl_end = new JLabel("Keine Reservierung an diesem Datum möglich");
-                                        panel_end.add(lbl_end);
-                                        end.pack();
-                                        end.setVisible(true);
-
-
-                                    } else {
-                                        try {
-                                            reservierungsliste.reservieren(pickedDate, nutzer, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]);
-                                        } catch (IOException ex) {
-                                            throw new RuntimeException(ex);
+                                    //Fenster für Schulstunde
+                                    JDialog frame_schulstunde = new JDialog();
+                                    JPanel panel_schulstunde=new JPanel();
+                                    panel_schulstunde.setVisible(true);
+                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+reservierungsliste.gewaehltesDatum+" wählen");
+                                    panel_schulstunde.add(lbl_schulstunde);
+                                    for(int i =0;i<10;i++){
+                                        final int gewaehlte_stunde = i;
+                                        JButton btn_i=new JButton("Stunde "+i );
+                                        btn_i.setBackground(Color.white);
+                                        //wenn eine Reservierung vorliegt, mache den Button rot
+                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])){
+                                            btn_i.setBackground(Color.red);
                                         }
-                                        JDialog end_reservieren = new JDialog();
-                                        end_reservieren.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                        end_reservieren.setLocation(430, 100);
-                                        JPanel panel_end_reservieren = new JPanel();
-                                        end_reservieren.add(panel_end_reservieren);
-                                        JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + " reserviert.");
-                                       panel_end_reservieren.add(lbl_end_reservieren);
-                                        end_reservieren.pack();
-                                        end_reservieren.setVisible(true);
+                                        panel_schulstunde.add(btn_i);
+                                        btn_i.addActionListener(new ActionListener() {
+                                            @Override
+                                            public void actionPerformed(ActionEvent e) {
+                                                //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
+                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])) {
+                                                    frame.dispose();
+                                                    JDialog end = new JDialog();
+                                                    end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end.setLocation(430, 100);
+                                                    JPanel panel_end = new JPanel();
+                                                    end.add(panel_end);
+                                                    JLabel lbl_end = new JLabel("Keine Reservierung in dieser Stunde möglich");
+                                                    lbl_end.setVisible(true);
+                                                    panel_end.add(lbl_end);
+                                                    end.pack();
+                                                    end.setVisible(true);
+
+                                                }
+                                                else {
+                                                    try {
+                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+
+                                                    } catch (IOException ex) {
+                                                        throw new RuntimeException(ex);
+                                                    }
+                                                    JDialog end_reservieren = new JDialog();
+                                                    end_reservieren.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end_reservieren.setLocation(430, 100);
+                                                    JPanel panel_end_reservieren = new JPanel();
+                                                    end_reservieren.add(panel_end_reservieren);
+                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + "in Stunde "+ gewaehlte_stunde+" reserviert.");
+                                                    lbl_end_reservieren.setVisible(true);
+                                                    panel_end_reservieren.add(lbl_end_reservieren);
+                                                    end_reservieren.pack();
+                                                    end_reservieren.setVisible(true);
+
+                                                }
+                                                //Reservieren Fenster verschrotten, Stunden Fenster verschrotten, Hauptframe wieder sichtbar machen
+                                                frame_schulstunde.dispose();
+                                                frame_reservieren.dispose();
+                                                frame.setVisible(true);
+
+                                            }
+                                        });
 
                                     }
-                                    //Reservieren Fenster verschrotten, Hauptframe wieder sichtbar machen
-                                    frame_reservieren.dispose();
-                                    frame.setVisible(true);
+                                    JButton btn_stunde_back=new JButton("Zurück");
+                                    btn_stunde_back.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            //Stunden Fenster schließen, Hauptfenster wieder sichtbar machen
+                                            frame_schulstunde.dispose();
+                                            frame.setVisible(true);
+                                        }
+                                    });
+                                    frame_schulstunde.add(btn_stunde_back);
+                                    frame_schulstunde.add(panel_schulstunde);
+                                    frame_schulstunde.pack();
+                                    frame_schulstunde.setVisible(true);
+
+
+
                                 }
                             });
 
@@ -765,7 +858,7 @@ public class GUI {
                             String[] reservierungen = new String[reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length];
 
                             for(int i =0;i<reservierungsliste.reservierungenBenutzerAnzeigen(nutzer).length;i++){
-                                reservierungen[i]="Koffer "+  reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].koffer.gibNummer()+ ", Datum: "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].datum;
+                                reservierungen[i]="Koffer "+  reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibKoffer().gibNummer()+ ", Datum: "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibDatum()+", Stunde:"+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[i].gibStunde();
                             }
                             final JComboBox<String> cb_reservierungen = new JComboBox<String>(reservierungen);
                             JButton btn_stornieren = new JButton("OK");
@@ -781,9 +874,9 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     //Stornieren
-                                    String storniert = new String("Reservierung von Koffer "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer.gibNummer()+" am "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum+" storniert.");
+                                    String storniert = new String("Reservierung von Koffer "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer().gibNummer()+" am "+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum() + " in der Stunde"+reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibStunde()+ " storniert.");
                                     try {
-                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].datum,reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].koffer);
+                                        reservierungsliste.stornieren(reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibDatum(),reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibStunde(),reservierungsliste.reservierungenBenutzerAnzeigen(nutzer)[cb_reservierungen.getSelectedIndex()].gibKoffer());
                                     } catch (IOException ex) {
                                         throw new RuntimeException(ex);
                                     }
@@ -908,6 +1001,7 @@ public class GUI {
                             btn_abmelden_ja.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
+                                 benutzerliste.benutzerAbmelden();
                                     //Frame "abmelden" verschrotten, Frame 1 wieder aufbauen
                                     frame_abmelden.dispose();
                                     frame.remove(menu);

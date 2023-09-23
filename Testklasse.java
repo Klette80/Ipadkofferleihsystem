@@ -14,12 +14,25 @@ public class Testklasse {
 
     public Testklasse() throws IOException {
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
-        Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
-        Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
-        Main.benutzerliste.benutzerAbmelden();
+        //Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
+        //Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
+        //Main.benutzerliste.benutzerAbmelden();
 
-        //Main.reservierungsliste.alleReservierungenAusgeben();
-        //Main.reservierungsliste.reservierungenBenutzerAnzeigen("Peter");
+        datum1 = LocalDate.of(2023, 9, 5);
+        datum2 = LocalDate.of(2023, 9, 6);
+
+        Main.reservierungsliste.reservieren(datum2,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+
+        Main.reservierungsliste.reservieren(datum1,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+
+
+
+
+        Main.reservierungsliste.alleReservierungenAusgeben();
+      // Main.reservierungsliste.reservierungenBenutzerAnzeigen("Peter");
 
         //Main.reservierungsliste.kofferAnzeigen();
         //Main.reservierungsliste.kofferEntfernen(3);

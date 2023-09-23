@@ -15,34 +15,49 @@ public class Datenknoten implements Knoten, Serializable {
     public Knoten reservieren(Reservierung reservierung) throws IOException {
         // Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
         // wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
-        if (reservierung.datum.compareTo(daten.datum) > 0) {
+        if (reservierung.gibDatum().compareTo(daten.gibDatum()) > 0) {
             naechster = naechster.reservieren(reservierung);
             return this;
         }
-        if (reservierung.datum.compareTo(daten.datum) < 0) {
+        //wenn das Datum gleich ist, vergleiche die Stunden
+        if(reservierung.gibDatum().compareTo(daten.gibDatum()) == 0){
+           //bei kleinerer Stunde -> mache bei nächstem Knoten weiter
+            if(reservierung.gibStunde()> daten.gibStunde()){
+                naechster = naechster.reservieren(reservierung);
+                return this;
+            }
+            //bei größerer Stunde -> umverzeigern
+            if(reservierung.gibStunde()< daten.gibStunde()){
+                Datenknoten neu = new Datenknoten(naechster, daten);
+                this.naechster = neu;
+                this.daten = reservierung;
+                }
+        }
+        if (reservierung.gibDatum().compareTo(daten.gibDatum()) < 0) {
             //Wenn das data Datum NACH inhalt-Datum ist: Erzeuge neuen Datenknoten mit "altem Inhalt", verzeigere neu und fülle den alten Knoten mit neuem Inhalt
             Datenknoten neu = new Datenknoten(naechster, daten);
             this.naechster = neu;
             this.daten = reservierung;
+
         }
         return this;
     }
 
-    public void stornieren(LocalDate datum, Koffer koffer) throws IOException {
-        //Wenn das Datum und der Koffer von Nächster der gesuchte Datensatz ist --> verzeigere um,
-        //sonst führe die Methode stonieren auf dem Nächsten auf.
-        if ((naechster.gibDaten() != null && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
-            System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " wurde gelöscht.");
+    public void stornieren(LocalDate datum, int stunde, Koffer koffer) throws IOException {
+        // Wenn das Datum, die Stunde und der Koffer von Nächster der gesuchte Datensatz ist --> verzeigere um,
+        // sonst führe die Methode stonieren auf dem Nächsten auf.
+        if ((naechster.gibDaten() != null && naechster.gibDaten().gibStunde() == stunde && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
+            System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " in Stunde " + naechster.gibDaten().gibStunde() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
-            //Main.ks.speichern(Main.reservierungsliste);
+            // speichere den aktualisierten Datensatz
             speichern();
         } else {
-            naechster.stornieren(datum, koffer);
+            naechster.stornieren(datum, stunde, koffer);
         }
     }
 
     public void alleReservierungenAusgeben(int i){
-        System.out.println(i + ". Reservierung: Datum: " + daten.gibDatum() + ", Name: " + daten.gibName() + ", Koffer mit der Nummer: " + daten.gibKoffer().gibNummer());
+        System.out.println(i + ". Reservierung: Datum: " + daten.gibDatum() + ", Schulstunde: " + daten.gibStunde() + ", Name: " + daten.gibName() + ", Koffer mit der Nummer: " + daten.gibKoffer().gibNummer());
         int j = i + 1;
         naechster.alleReservierungenAusgeben(j);
     }
@@ -64,14 +79,13 @@ public class Datenknoten implements Knoten, Serializable {
     }
 
     @Override
-    public boolean istReserviert(LocalDate datum, Koffer koffer) {
-        if (daten.gibDatum().compareTo(datum) == 0 && daten.gibKoffer().gibNummer() == koffer.gibNummer()) {
+    public boolean istReserviert(LocalDate datum, int stunde, Koffer koffer) {
+        if (daten.gibDatum().compareTo(datum) == 0 && daten.gibStunde() == stunde && daten.gibKoffer().gibNummer() == koffer.gibNummer()) {
             return true;
         } else {
-            return naechster.istReserviert(datum, koffer);
+            return naechster.istReserviert(datum, stunde, koffer);
         }
     }
-
     public void speichern() throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
     }

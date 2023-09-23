@@ -20,12 +20,17 @@ public class Main {
 
 
             benutzerliste = bs.laden();
+            if(benutzerliste.gibAngemeldeterBenutzer()!=null){
+                benutzerliste.benutzerAbmelden();
+            }
 
 
-       Testklasse test = new Testklasse();
+      // Testklasse test = new Testklasse();
 
         // Lade die GUI
-       GUI gui = new GUI(reservierungsliste, benutzerliste);
+    GUI gui = new GUI(reservierungsliste, benutzerliste);
+
+
 
     }
 }
