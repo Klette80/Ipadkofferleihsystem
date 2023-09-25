@@ -14,7 +14,7 @@ public class Datenknoten implements Knoten, Serializable {
 
     public Knoten reservieren(Reservierung reservierung) throws IOException {
         // Datum des Inputs "reservierung" mit dem Datum des vorhandenen ("data") vergleichen
-        // wenn Datum von data VOR neuem reservierungs-Datum -> mache beim Nachfolger weiter
+        // wenn Datum von data VOR neuem Reservierungsdatum -> mache beim Nachfolger weiter
         if (reservierung.gibDatum().compareTo(daten.gibDatum()) > 0) {
             naechster = naechster.reservieren(reservierung);
             return this;
@@ -45,12 +45,10 @@ public class Datenknoten implements Knoten, Serializable {
 
     public void stornieren(LocalDate datum, int stunde, Koffer koffer) throws IOException {
         // Wenn das Datum, die Stunde und der Koffer von Nächster der gesuchte Datensatz ist --> verzeigere um,
-        // sonst führe die Methode stonieren auf dem Nächsten auf.
+        // sonst führe die Methode stornieren auf dem Nächsten auf.
         if ((naechster.gibDaten() != null && naechster.gibDaten().gibStunde() == stunde && naechster.gibDaten().gibDatum().compareTo(datum) == 0 && naechster.gibDaten().gibKoffer() == koffer)) {
             System.out.println("Die Reservierung von " + naechster.gibDaten().gibName() + " am " + naechster.gibDaten().gibDatum() + " in Stunde " + naechster.gibDaten().gibStunde() + " wurde gelöscht.");
             naechster = naechster.gibNaechster();
-            // speichere den aktualisierten Datensatz
-            speichern();
         } else {
             naechster.stornieren(datum, stunde, koffer);
         }
@@ -86,8 +84,4 @@ public class Datenknoten implements Knoten, Serializable {
             return naechster.istReserviert(datum, stunde, koffer);
         }
     }
-    public void speichern() throws IOException {
-        Main.ks.speichern(Main.reservierungsliste);
-    }
-
 }

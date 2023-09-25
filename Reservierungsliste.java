@@ -36,10 +36,10 @@ public class Reservierungsliste implements Serializable {
         if (root.gibDaten().gibDatum() == datum && root.gibDaten().gibStunde() == stunde) {
             System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " in Stunde " + root.gibDaten().gibStunde() + " wurde gelöscht.");
             root = root.gibNaechster();
-            speichern();
-        } else {
+            } else {
             root.stornieren(datum, stunde, koffer);
         }
+        speichern();
     }
 
     public boolean istReserviert(LocalDate datum, int stunde, Koffer koffer) {
