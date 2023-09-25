@@ -114,11 +114,12 @@ public class GUI {
                             btn_reservieren.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+                                    String gewaehltesDatum;
+                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
                                     //Aus Datum-String mache int-Datum
-                                    int year = (1000 * (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(8))) + (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(9)));
-                                    int month = (10 * (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(4)));
-                                    int day = (10 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(0))) + Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(1));
+                                    int year = (1000 * (Character.getNumericValue(gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(gewaehltesDatum.charAt(8))) + (Character.getNumericValue(gewaehltesDatum.charAt(9)));
+                                    int month = (10 * (Character.getNumericValue(gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(gewaehltesDatum.charAt(4)));
+                                    int day = (10 * Character.getNumericValue(gewaehltesDatum.charAt(0))) + Character.getNumericValue(gewaehltesDatum.charAt(1));
 
                                     LocalDate pickedDate = LocalDate.of(year, month, day);
 
@@ -126,7 +127,7 @@ public class GUI {
                                     JDialog frame_schulstunde = new JDialog();
                                     JPanel panel_schulstunde=new JPanel();
                                     panel_schulstunde.setVisible(true);
-                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+reservierungsliste.gewaehltesDatum+" wählen");
+                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+gewaehltesDatum+" wählen");
                                     panel_schulstunde.add(lbl_schulstunde);
                                     for(int i =0;i<10;i++){
                                         final int gewaehlte_stunde = i;
@@ -736,12 +737,12 @@ public class GUI {
                             btn_reservieren.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-
-                                    reservierungsliste.gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+String gewaehltesDatum;
+                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
                                     //Aus Datum-String mache int-Datum
-                                    int year = (1000 * (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(8))) + (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(9)));
-                                    int month = (10 * (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(4)));
-                                    int day = (10 * Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(0))) + Character.getNumericValue(reservierungsliste.gewaehltesDatum.charAt(1));
+                                    int year = (1000 * (Character.getNumericValue(gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(gewaehltesDatum.charAt(8))) + (Character.getNumericValue(gewaehltesDatum.charAt(9)));
+                                    int month = (10 * (Character.getNumericValue(gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(gewaehltesDatum.charAt(4)));
+                                    int day = (10 * Character.getNumericValue(gewaehltesDatum.charAt(0))) + Character.getNumericValue(gewaehltesDatum.charAt(1));
 
                                     LocalDate pickedDate = LocalDate.of(year, month, day);
 
@@ -749,7 +750,7 @@ public class GUI {
                                     JDialog frame_schulstunde = new JDialog();
                                     JPanel panel_schulstunde=new JPanel();
                                     panel_schulstunde.setVisible(true);
-                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+reservierungsliste.gewaehltesDatum+" wählen");
+                                    JLabel lbl_schulstunde = new JLabel("Schuldstunde am "+gewaehltesDatum+" wählen");
                                     panel_schulstunde.add(lbl_schulstunde);
                                     for(int i =0;i<10;i++){
                                         final int gewaehlte_stunde = i;
