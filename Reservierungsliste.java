@@ -61,7 +61,7 @@ public class Reservierungsliste implements Serializable {
             System.out.println("Sie haben keine Reservierungen.");
             return null;
         } else {
-            //Array mit der Anzahl der gefundenen Reservierugnen anlegen
+            //Array mit der Anzahl der gefundenen Reservierungen anlegen
             Reservierung reservierungen[] = new Reservierung[anzahl];
             Knoten aktuellerKnoten = root;
             int einfuegeposition = 0;
