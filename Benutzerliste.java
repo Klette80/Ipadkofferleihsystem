@@ -10,8 +10,6 @@ public class Benutzerliste implements Serializable {
         angemeldeterBenutzer = null;
         Benutzer neu = new Benutzer("Admin", "Admin", "admin", "admin");
         erster = erster.einfuegen(neu);
-        BenutzerSerializer bs = new BenutzerSerializer();
-        bs.speichern(this);
     }
 
     //Benutzer anmelden

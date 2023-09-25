@@ -8,7 +8,6 @@ public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
     public Koffer[] kofferliste;
-    private Array[] speicherArray;
     public String gewaehltesDatum;
 
     public Reservierungsliste() throws IOException {
@@ -16,8 +15,6 @@ public class Reservierungsliste implements Serializable {
         Koffer koffer = new Koffer(1);
         kofferliste = new Koffer[1];
         kofferliste[0] = koffer;
-        KompositumSerializer ks = new KompositumSerializer();
-        ks.speichern(this);
     }
 
     //Einen iPad-Koffer reservieren
