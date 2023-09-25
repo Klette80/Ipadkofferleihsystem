@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +179,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Stefan" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
