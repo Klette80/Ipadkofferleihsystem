@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
-    public Koffer[] kofferliste;
+    private Koffer[] kofferliste;
 
 
     public Reservierungsliste() throws IOException {
@@ -187,5 +187,7 @@ public class Reservierungsliste implements Serializable {
     private void speichern () throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
     }
-
+public Koffer[] gibKofferListe(){
+        return kofferliste;
+}
 }

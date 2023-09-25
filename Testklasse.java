@@ -21,12 +21,12 @@ public class Testklasse {
         datum1 = LocalDate.of(2023, 9, 5);
         datum2 = LocalDate.of(2023, 9, 6);
 
-        Main.reservierungsliste.reservieren(datum2,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
-        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum2,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
-        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
-        Main.reservierungsliste.reservieren(datum1,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum1,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
 
 
