@@ -184,7 +184,7 @@ public class Reservierungsliste implements Serializable {
         }
     }
 
-    public void speichern () throws IOException {
+    private void speichern () throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
     }
 
