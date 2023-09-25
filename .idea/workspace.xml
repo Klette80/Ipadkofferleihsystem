@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="gewahltesDatum raus aus reservierungsliste">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservierungsliste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservierungsliste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testklasse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testklasse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GUI$1$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/GespeicherteListe.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" afterDir="false" />
     </list>
@@ -160,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690810507176</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="gewahltesDatum nicht mehr privat">
+      <created>1695625457483</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695625457483</updated>
+    </task>
+    <task id="LOCAL-00012" summary="gewahltesDatum raus aus reservierungsliste">
+      <created>1695625623184</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695625623184</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,7 +223,9 @@
     <MESSAGE value="Implementierung der Speicherfunktion für die Benutzerliste." />
     <MESSAGE value="Verschlankung des Exception-Handlings" />
     <MESSAGE value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
-    <option name="LAST_COMMIT_MESSAGE" value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
+    <MESSAGE value="gewahltesDatum nicht mehr privat" />
+    <MESSAGE value="gewahltesDatum raus aus reservierungsliste" />
+    <option name="LAST_COMMIT_MESSAGE" value="gewahltesDatum raus aus reservierungsliste" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ipadkofferleihsystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1690880443338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

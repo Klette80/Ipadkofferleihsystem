@@ -93,9 +93,9 @@ public class GUI {
                             panel_reservieren.setVisible(true);
                             JLabel lbl_reservieren = new JLabel("Für Reservieren Koffer wählen");
                             //Kofferliste aus Reservierungsliste
-                            String[] koffers= new String[Main.reservierungsliste.kofferliste.length];
-                            for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
-                                koffers[j] = "Koffer " + Main.reservierungsliste.kofferliste[j].gibNummer();
+                            String[] koffers= new String[Main.reservierungsliste.gibKofferListe().length];
+                            for (int j = 0;j<reservierungsliste.gibKofferListe().length;j++){
+                                koffers[j] = "Koffer " + Main.reservierungsliste.gibKofferListe()[j].gibNummer();
                             }
                             //Drop-Dowm-Menü für Kofferliste
                             final JComboBox<String> cb = new JComboBox<String>(koffers);
@@ -115,7 +115,7 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
                                     String gewaehltesDatum;
-                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.gibKofferListe()[cb.getSelectedIndex()]).setPickedDate();
                                     //Aus Datum-String mache int-Datum
                                     int year = (1000 * (Character.getNumericValue(gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(gewaehltesDatum.charAt(8))) + (Character.getNumericValue(gewaehltesDatum.charAt(9)));
                                     int month = (10 * (Character.getNumericValue(gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(gewaehltesDatum.charAt(4)));
@@ -134,7 +134,7 @@ public class GUI {
                                         JButton btn_i=new JButton("Stunde "+i );
                                         btn_i.setBackground(Color.white);
                                         //wenn eine Reservierung vorliegt, mache den Button rot
-                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])){
+                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()])){
                                             btn_i.setBackground(Color.red);
                                         }
                                         panel_schulstunde.add(btn_i);
@@ -142,7 +142,7 @@ public class GUI {
                                             @Override
                                             public void actionPerformed(ActionEvent e) {
                                                 //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
-                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])) {
+                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()])) {
                                                     frame.dispose();
                                                     JDialog end = new JDialog();
                                                     end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -158,7 +158,7 @@ public class GUI {
                                                 }
                                                 else {
                                                     try {
-                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()]);
 
                                                     } catch (IOException ex) {
                                                         throw new RuntimeException(ex);
@@ -168,7 +168,7 @@ public class GUI {
                                                     end_reservieren.setLocation(430, 100);
                                                     JPanel panel_end_reservieren = new JPanel();
                                                     end_reservieren.add(panel_end_reservieren);
-                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + " in Stunde "+ gewaehlte_stunde+" reserviert.");
+                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.gibKofferListe()[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + gewaehltesDatum + " in Stunde "+ gewaehlte_stunde+" reserviert.");
                                                     lbl_end_reservieren.setVisible(true);
                                                     panel_end_reservieren.add(lbl_end_reservieren);
                                                     end_reservieren.pack();
@@ -606,7 +606,7 @@ public class GUI {
                             panel_koffer_weg.setVisible(true);
 
                             //Drop Down Menu mit vorhandenen Koffern. Wenn keine Koffer vorhanden, zurück zum Hauptmenu
-                            if (reservierungsliste.kofferliste == null) {
+                            if (reservierungsliste.gibKofferListe() == null) {
                                 JDialog end_no_koffer = new JDialog();
                                 end_no_koffer.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                                 end_no_koffer.setLocation(430, 100);
@@ -623,9 +623,9 @@ public class GUI {
                                 frame.setVisible(true);
                             } else {
                                 JLabel lbl_koffer_weg = new JLabel("Zu löschenden Koffer wählen: ");
-                                String[] koffer_weg = new String[Main.reservierungsliste.kofferliste.length];
-                                for (int j = 0; j < reservierungsliste.kofferliste.length; j++) {
-                                    koffer_weg[j] = "Koffer " + Main.reservierungsliste.kofferliste[j].gibNummer();
+                                String[] koffer_weg = new String[Main.reservierungsliste.gibKofferListe().length];
+                                for (int j = 0; j < reservierungsliste.gibKofferListe().length; j++) {
+                                    koffer_weg[j] = "Koffer " + Main.reservierungsliste.gibKofferListe()[j].gibNummer();
                                 }
                                 //Drop-Dowm-Menü für Kofferliste
                                 final JComboBox<String> cb_koffer_weg = new JComboBox<String>(koffer_weg);
@@ -718,9 +718,9 @@ public class GUI {
                             panel_reservieren.setVisible(true);
                             JLabel lbl_reservieren = new JLabel("Für Reservieren Koffer wählen");
                             //Kofferliste aus Reservierungsliste
-                            String[] koffers= new String[Main.reservierungsliste.kofferliste.length];
-                            for (int j = 0;j<reservierungsliste.kofferliste.length;j++){
-                                koffers[j] = "Koffer " + Main.reservierungsliste.kofferliste[j].gibNummer();
+                            String[] koffers= new String[Main.reservierungsliste.gibKofferListe().length];
+                            for (int j = 0;j<reservierungsliste.gibKofferListe().length;j++){
+                                koffers[j] = "Koffer " + Main.reservierungsliste.gibKofferListe()[j].gibNummer();
                             }
                             //Drop-Dowm-Menü für Kofferliste
                             final JComboBox<String> cb = new JComboBox<String>(koffers);
@@ -738,7 +738,7 @@ public class GUI {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
 String gewaehltesDatum;
-                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.kofferliste[cb.getSelectedIndex()]).setPickedDate();
+                                    gewaehltesDatum = new Kalender(frame, reservierungsliste, Main.reservierungsliste.gibKofferListe()[cb.getSelectedIndex()]).setPickedDate();
                                     //Aus Datum-String mache int-Datum
                                     int year = (1000 * (Character.getNumericValue(gewaehltesDatum.charAt(6)))) + (100 * Character.getNumericValue(gewaehltesDatum.charAt(7))) + (10 * Character.getNumericValue(gewaehltesDatum.charAt(8))) + (Character.getNumericValue(gewaehltesDatum.charAt(9)));
                                     int month = (10 * (Character.getNumericValue(gewaehltesDatum.charAt(3)))) + (Character.getNumericValue(gewaehltesDatum.charAt(4)));
@@ -757,7 +757,7 @@ String gewaehltesDatum;
                                         JButton btn_i=new JButton("Stunde "+i );
                                         btn_i.setBackground(Color.white);
                                         //wenn eine Reservierung vorliegt, mache den Button rot
-                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])){
+                                        if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()])){
                                             btn_i.setBackground(Color.red);
                                         }
                                         panel_schulstunde.add(btn_i);
@@ -765,7 +765,7 @@ String gewaehltesDatum;
                                             @Override
                                             public void actionPerformed(ActionEvent e) {
                                                 //Prüfe, ob eine Reservierung vorliegt: Wenn ja: Pop-Up: "Keine Reservierung, sonst: Mit Datum und Namen reservieren
-                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.kofferliste[cb.getSelectedIndex()])) {
+                                                if(reservierungsliste.istReserviert(pickedDate,gewaehlte_stunde,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()])) {
                                                     frame.dispose();
                                                     JDialog end = new JDialog();
                                                     end.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -781,7 +781,7 @@ String gewaehltesDatum;
                                                 }
                                                 else {
                                                     try {
-                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.kofferliste[cb.getSelectedIndex()]);
+                                                        reservierungsliste.reservieren(pickedDate,gewaehlte_stunde,nutzer,reservierungsliste.gibKofferListe()[cb.getSelectedIndex()]);
 
                                                     } catch (IOException ex) {
                                                         throw new RuntimeException(ex);
@@ -791,7 +791,7 @@ String gewaehltesDatum;
                                                     end_reservieren.setLocation(430, 100);
                                                     JPanel panel_end_reservieren = new JPanel();
                                                     end_reservieren.add(panel_end_reservieren);
-                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.kofferliste[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + reservierungsliste.gewaehltesDatum + "in Stunde "+ gewaehlte_stunde+" reserviert.");
+                                                    JLabel lbl_end_reservieren = new JLabel("Koffer " + reservierungsliste.gibKofferListe()[cb.getSelectedIndex()].gibNummer() + " für " + nutzer + " am Datum " + gewaehltesDatum + "in Stunde "+ gewaehlte_stunde+" reserviert.");
                                                     lbl_end_reservieren.setVisible(true);
                                                     panel_end_reservieren.add(lbl_end_reservieren);
                                                     end_reservieren.pack();
