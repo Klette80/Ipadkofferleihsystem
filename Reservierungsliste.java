@@ -8,7 +8,7 @@ public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
     public Koffer[] kofferliste;
-    public String gewaehltesDatum;
+
 
     public Reservierungsliste() throws IOException {
         root = new Endknoten();
