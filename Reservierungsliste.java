@@ -187,7 +187,8 @@ public class Reservierungsliste implements Serializable {
     private void speichern () throws IOException {
         Main.ks.speichern(Main.reservierungsliste);
     }
-public Koffer[] gibKofferListe(){
+
+    public Koffer[] gibKofferListe(){
         return kofferliste;
-}
+    }
 }

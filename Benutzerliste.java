@@ -34,14 +34,6 @@ public class Benutzerliste implements Serializable {
         }
     }
 
-    public void baRekursiv(String benutzername, String passwort) {
-        if (erster.baRekursiv(benutzername, passwort) == null) {
-            System.out.println("Der Benutzername oder das Passwort wurden nicht gefunden.");
-        }
-        else{
-        angemeldeterBenutzer = erster.baRekursiv(benutzername, passwort);}
-    }
-
     //Benutzer abmelden
     public void benutzerAbmelden(){
         angemeldeterBenutzer = null;
@@ -80,18 +72,6 @@ public class Benutzerliste implements Serializable {
             }
         } else {
             System.out.println("Neue Benutzer können nur vom Admin angelegt werden.");
-        }
-    }
-
-    //Benutzerpasswort ändern - nur für den angemeldeten Benutzer möglich
-    public void benutzerPasswortAendern(String benutzer, String neuesPasswort) throws IOException {
-        if(angemeldeterBenutzer == null){
-            System.out.println("Es ist kein Benutzer angemeldet.");
-        } else if(angemeldeterBenutzer.gibBenutzername().equals(benutzer)){
-            angemeldeterBenutzer.setzePasswort(neuesPasswort);
-            speichern();
-        } else {
-            System.out.println("Das Passwort kann nur vom angemeldeten Benutzer geändert werden.");
         }
     }
 
