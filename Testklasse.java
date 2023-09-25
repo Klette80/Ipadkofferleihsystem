@@ -5,14 +5,17 @@ import java.time.chrono.ChronoLocalDate;
 import java.time.LocalDate;
 
 public class Testklasse {
+    /*
     public LocalDate datum1;
     public LocalDate datum2;
     public LocalDate datum3;
 
     //public static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute)
     public LocalDate datum4;
+    */
 
     public Testklasse() throws IOException {
+        /*
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
         //Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
         //Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
