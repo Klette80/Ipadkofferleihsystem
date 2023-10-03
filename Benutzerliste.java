@@ -4,7 +4,6 @@ import java.io.Serializable;
 public class Benutzerliste implements Serializable {
     private Node erster;
     private Benutzer angemeldeterBenutzer;
-    private Benutzer[] namensliste;
 
     public Benutzerliste() throws IOException {
         erster = new EndNode();
@@ -104,18 +103,6 @@ public class Benutzerliste implements Serializable {
         Main.bs.speichern(Main.benutzerliste);
     }
 
-    public int benutzerListeLaenge(){
-        return erster.benutzerListeLaenge();
-    }
-/*public Benutzer[] benutzerListeAusgeben(){
-        Node aktuell = erster;
-        Benutzer[] benutzer = new Benutzer[benutzerListeLaenge()];
-    for (int i = 0;i<benutzerListeLaenge();i++){
-        benutzer[i] = aktuell.gibInhalt();
-        aktuell = aktuell.gibNaechster();
-    }
-    return benutzer;
-}*/
-    }
+}
 
 
