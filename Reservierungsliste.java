@@ -25,8 +25,6 @@ public class Reservierungsliste implements Serializable {
             Reservierung reservierung = new Reservierung(datum, stunde, name, koffer);
             root = root.reservieren(reservierung);
             speichern();
-        } else {
-            System.out.println("An diesem Datum liegt schon eine Reservierung vor");
         }
     }
 
