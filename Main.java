@@ -28,7 +28,7 @@ public class Main {
       // Testklasse test = new Testklasse();
 
         // Lade die GUI
-    GUI gui = new GUI(reservierungsliste, benutzerliste);
+ GUI gui = new GUI(reservierungsliste, benutzerliste);
 
 
 

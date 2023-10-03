@@ -11,7 +11,7 @@ public class EndNode implements Node, Serializable {
     }
 
     public void loeschen(String benutzername) {
-        System.out.println("Benutzname ist nicht in der Liste enthalten.");
+        System.out.println("Benutzername ist nicht in der Liste enthalten.");
     }
 
     public Benutzer gibInhalt() {
@@ -22,8 +22,15 @@ public class EndNode implements Node, Serializable {
         return null;
     }
 
-    public void benutzerlisteAusgeben() {
-        System.out.println("Ende der Liste");
+    public String benutzerlisteAusgeben() {
+        return "";
     }
+    public int benutzerListeLaenge(){
+        return 1;
+    };
 
+    @Override
+    public boolean nutzerNameVorhanden(String name) {
+        return false;
+    }
 }

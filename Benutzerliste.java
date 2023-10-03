@@ -4,6 +4,7 @@ import java.io.Serializable;
 public class Benutzerliste implements Serializable {
     private Node erster;
     private Benutzer angemeldeterBenutzer;
+    private Benutzer[] namensliste;
 
     public Benutzerliste() throws IOException {
         erster = new EndNode();
@@ -76,14 +77,14 @@ public class Benutzerliste implements Serializable {
     }
 
     //Eine Liste aller Benutzer ausgeben
-    public void benutzerlisteAusgeben(){
-        erster.benutzerlisteAusgeben();
+    public String benutzerlisteAusgeben(){
+        return erster.benutzerlisteAusgeben();
     }
 
     //Gib den Benutzernamen zurück
     public String gibNameAngemeldeterBenutzer(){
         if(angemeldeterBenutzer == null){
-            return "Es ist kein Benutzer angelmeldet.";
+            return "Es ist kein Benutzer angemeldet.";
         } else {
             return angemeldeterBenutzer.gibBenutzername();
         }
@@ -102,5 +103,19 @@ public class Benutzerliste implements Serializable {
     private void speichern() throws IOException {
         Main.bs.speichern(Main.benutzerliste);
     }
-}
+
+    public int benutzerListeLaenge(){
+        return erster.benutzerListeLaenge();
+    }
+/*public Benutzer[] benutzerListeAusgeben(){
+        Node aktuell = erster;
+        Benutzer[] benutzer = new Benutzer[benutzerListeLaenge()];
+    for (int i = 0;i<benutzerListeLaenge();i++){
+        benutzer[i] = aktuell.gibInhalt();
+        aktuell = aktuell.gibNaechster();
+    }
+    return benutzer;
+}*/
+    }
+
 

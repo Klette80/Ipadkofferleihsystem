@@ -26,6 +26,12 @@ public class DataNode implements Node, Serializable
         }
         return this;
     }
+    public boolean nutzerNameVorhanden(String name){
+
+        if (name.equals(inhalt.gibBenutzername())) return true;
+            else return naechster.nutzerNameVorhanden(name);
+        }
+
 
     public void loeschen(String benutzername){
         //Wenn der Benutzername vom Nächsten der gesuchte Datensatz ist --> verzeigere um,
@@ -45,9 +51,15 @@ public class DataNode implements Node, Serializable
     public Node gibNaechster(){
         return naechster;
     }
-
-    public void benutzerlisteAusgeben(){
-        System.out.println("Vorname: " + inhalt.gibVorname() + " Nachname: " + inhalt.gibName() + " Benutzername: " + inhalt.gibBenutzername());
-        naechster.benutzerlisteAusgeben();
+    public int benutzerListeLaenge(){
+        return naechster.benutzerListeLaenge() + 1;
     }
+
+    public String benutzerlisteAusgeben(){
+
+        //System.out.println("Vorname: " + inhalt.gibVorname() + " Nachname: " + inhalt.gibName() + " Benutzername: " + inhalt.gibBenutzername());
+        return inhalt.gibBenutzername() +"-x-"+ naechster.benutzerlisteAusgeben();
+    }
+
+
 }

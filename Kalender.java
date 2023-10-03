@@ -15,8 +15,10 @@ public class Kalender {
 
     public Kalender(JDialog parent, Reservierungsliste reservierungsliste, Koffer koffer) {
         d = new JDialog();
+        d.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
         d.setModal(true);
-        String[] header = { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" };
+        String[] header = { "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa" };
         JPanel p2 = new JPanel(new GridLayout(1, 3));
         JButton previous = new JButton("<<");
         previous.addActionListener(new ActionListener() {
@@ -108,12 +110,12 @@ public class Kalender {
         }
 
         l.setText(sdf.format(cal.getTime()));
-        d.setTitle("Date Picker");
+        d.setTitle("Datum wählen");
     }
 
     public String setPickedDate() {
         if (day.equals("")){
-            System.out.println("Kalender: day ist Null");
+            //System.out.println("Kalender: day ist Null");
             return day;}
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
                 "dd-MM-yyyy");

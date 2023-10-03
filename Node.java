@@ -4,5 +4,12 @@ public interface Node
     public void loeschen(String benutzername);
     public Benutzer gibInhalt();
     public Node gibNaechster();
-    public void benutzerlisteAusgeben();}
+
+    public int benutzerListeLaenge();
+    public String benutzerlisteAusgeben();
+
+    public boolean nutzerNameVorhanden(String name);
+
+
+}
 
