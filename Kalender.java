@@ -93,20 +93,27 @@ public class Kalender {
             button[i].setText("");
             button[i].setBackground(Color.white);
         }
+        boolean reserviert=false;
         for (int i = 6 + dayOfWeek, day = 1; day <= daysInMonth; i++, day++) {
+            int count =0;
             button[i].setText("" + day);
             button[i].setBackground(Color.white);
-            //Datum abgleichen und Feld rot hinterlegen
+            //Datum abgleichen und Feld rot hinterlegen, wenn alle Stunden an einem Tag schon reserviert sind
+
             int jahr=year;
             int monat=month+1;
             int tag=day;
             LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
 
-           /* if (reservierungsliste.istReserviert(datum_1, koffer)==true) {
-                System.out.println("Kalender: Reservierung gefunden");
-                button[i].setBackground(Color.red);
-            }
-*/
+           for(int j=0; j<9;j++) {
+               if (reservierungsliste.istReserviert(datum_1, j, koffer) == true) {
+                   count = count+1;
+                     }
+               if (count > 8) {
+                  button[i].setBackground(Color.red);
+               }
+           }
+
         }
 
         l.setText(sdf.format(cal.getTime()));
