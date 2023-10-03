@@ -99,6 +99,7 @@ public class Benutzerliste implements Serializable {
         return erster;
     }
 
+    //speichert die Benutzerliste bei Änderungen
     private void speichern() throws IOException {
         Main.bs.speichern(Main.benutzerliste);
     }
