@@ -724,8 +724,15 @@ public class GUI {
                             //String aus Benntzerliste in Array umwandeln
                             String[] split = benutzerliste.benutzerlisteAusgeben().split("-x-");
                             String[] split_ohne_admin = new String[split.length - 1];
-                            for (int i = 0; i < split_ohne_admin.length; i++) {
-                                split_ohne_admin[i] = split[i + 1];
+
+                            for (int i = 0, j=0; i < split.length; i++) {
+                                if(split[i].equals("admin")==true){
+                                   // split_ohne_admin[i]=split[j+1];
+                                }
+                                else {
+                                    split_ohne_admin[j] = split[i];
+                                   j++;
+                                }
                             }
 
 
@@ -1002,8 +1009,10 @@ public class GUI {
                                 JPanel panel_koffer_weg_menu=new JPanel();
                                 JLabel lbl_koffer_weg = new JLabel("Zu löschenden Koffer wählen: ");
                                 String[] koffer_weg = new String[Main.reservierungsliste.gibKofferListe().length];
+                                int[] koffer_nummer_auswahl = new int[Main.reservierungsliste.gibKofferListe().length];
                                 for (int j = 0; j < reservierungsliste.gibKofferListe().length; j++) {
                                     koffer_weg[j] = "Koffer " + Main.reservierungsliste.gibKofferListe()[j].gibNummer();
+                                    koffer_nummer_auswahl[j]=Main.reservierungsliste.gibKofferListe()[j].gibNummer();
                                 }
                                 //Drop-Dowm-Menü für Kofferliste
                                 final JComboBox<String> cb_koffer_weg = new JComboBox<String>(koffer_weg);
@@ -1032,13 +1041,13 @@ public class GUI {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
                                         try {
-                                            reservierungsliste.kofferEntfernen(cb_koffer_weg.getSelectedIndex()+1);
+                                            reservierungsliste.kofferEntfernen(koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()]);
                                             JDialog end_koffer_weg = new JDialog();
                                             end_koffer_weg.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                                             end_koffer_weg.setLocation(800, 100);
                                             JPanel panel_end_koffer_weg = new JPanel();
                                             end_koffer_weg.add(panel_end_koffer_weg);
-                                            JLabel lbl_end_koffer_weg = new JLabel("Koffer "+(cb_koffer_weg.getSelectedIndex()+1)+" wurde entfernt.");
+                                            JLabel lbl_end_koffer_weg = new JLabel("Koffer "+koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()]+" wurde entfernt.");
                                             lbl_end_koffer_weg.setVisible(true);
                                             panel_end_koffer_weg.add(lbl_end_koffer_weg);
                                             end_koffer_weg.pack();
