@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst">
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Letzter Koffer in der Liste nicht löschbar in der GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kalender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Kalender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Kalender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipadkoffer logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ipadkoffer_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koffer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/koffer_cross.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696349982375</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Letzter Koffer in der Liste nicht löschbar in der GUI">
+      <created>1697480187966</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697480187966</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +246,8 @@
     <MESSAGE value="gewahltesDatum raus aus reservierungsliste" />
     <MESSAGE value="kofferliste jetzt privat" />
     <MESSAGE value="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst" />
+    <MESSAGE value="Letzter Koffer in der Liste nicht löschbar in der GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Letzter Koffer in der Liste nicht löschbar in der GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ipadkofferleihsystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1690880443338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
