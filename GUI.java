@@ -856,24 +856,24 @@ public class GUI {
                                     dialog_menu_admin.setVisible(true);
                                 }
                             });
-                            JPanel panel_koffer_neu=new JPanel(new BorderLayout());
+                            JPanel panel_koffer_neu = new JPanel(new BorderLayout());
                             //Koffer Symbol rechts ins Fenster
                             ImageIcon koffer_logo_new = new ImageIcon("koffer.png");
-                            koffer_logo_new.setImage(koffer_logo_new.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT));
-                            panel_koffer_neu.add(new JLabel(koffer_logo_new),BorderLayout.WEST);
+                            koffer_logo_new.setImage(koffer_logo_new.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+                            panel_koffer_neu.add(new JLabel(koffer_logo_new), BorderLayout.WEST);
                             panel_koffer_neu.setVisible(true);
 
                             JPanel panel_koffer_neu_menu = new JPanel();
 
                             JLabel lbl_koffer_neu = new JLabel("Nummer des neuen Koffers eintragen:");
-                            JTextField tf_koffer_neu=new JTextField(2);
-                            JButton btn_koffer_neu=new JButton("OK");
-                            JButton btn_koffer_neu_back=new JButton("zurück");
+                            JTextField tf_koffer_neu = new JTextField(2);
+                            JButton btn_koffer_neu = new JButton("OK");
+                            JButton btn_koffer_neu_back = new JButton("zurück");
                             panel_koffer_neu_menu.add(lbl_koffer_neu);
                             panel_koffer_neu_menu.add(tf_koffer_neu);
                             panel_koffer_neu_menu.add(btn_koffer_neu);
                             panel_koffer_neu_menu.add(btn_koffer_neu_back);
-                            panel_koffer_neu.add(panel_koffer_neu_menu,BorderLayout.EAST);
+                            panel_koffer_neu.add(panel_koffer_neu_menu, BorderLayout.EAST);
 
                             dialog_koffer_neu.add(panel_koffer_neu);
                             dialog_koffer_neu.pack();
@@ -891,52 +891,71 @@ public class GUI {
                             btn_koffer_neu.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    if(tf_koffer_neu!=null) {
-                                        //Wenn Koffernummer schon vorhanden, Pop-Up
-                                        boolean nummer_da = false;
-                                        for (int i = 0; i < reservierungsliste.gibKofferListe().length; i++) {
-                                            int neue_Nummer = Integer.parseInt(tf_koffer_neu.getText());
-                                            if (neue_Nummer == reservierungsliste.gibKofferListe()[i].gibNummer()) {
-                                                JDialog end_koffer_neu = new JDialog();
-                                                end_koffer_neu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                                end_koffer_neu.setLocation(800, 100);
-                                                JPanel panel_end_koffer_neu = new JPanel();
-                                                end_koffer_neu.add(panel_end_koffer_neu);
-                                                JLabel lbl_end_koffer_neu = new JLabel("Koffer mit der Nummer " + tf_koffer_neu.getText() + " existiert bereits.");
-                                                lbl_end_koffer_neu.setVisible(true);
-                                                panel_end_koffer_neu.add(lbl_end_koffer_neu);
-                                                end_koffer_neu.pack();
-                                                end_koffer_neu.setVisible(true);
-                                                nummer_da = true;
-                                            }
-                                        }
-                                        if (nummer_da == false) {
-                                            try {
-                                                reservierungsliste.neuerKoffer(Integer.parseInt(tf_koffer_neu.getText()));
-                                                JDialog end_koffer_neu = new JDialog();
-                                                end_koffer_neu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                                end_koffer_neu.setLocation(800, 100);
-                                                JPanel panel_end_koffer_neu = new JPanel();
-                                                end_koffer_neu.add(panel_end_koffer_neu);
-                                                JLabel lbl_end_koffer_neu = new JLabel("Koffer " + tf_koffer_neu.getText() + " erstellt");
-                                                lbl_end_koffer_neu.setVisible(true);
-                                                panel_end_koffer_neu.add(lbl_end_koffer_neu);
-                                                end_koffer_neu.pack();
-                                                end_koffer_neu.setVisible(true);
-                                            }
+                                    if (tf_koffer_neu != null) {
 
-                                            catch (IOException ex) {
-                                                throw new RuntimeException(ex);
+                                        if (tf_koffer_neu.getText().matches("[0-9]+") == false) {
+                                            //Pop Up Fenster falsche Nummer
+                                            JDialog end_koffer_neu_nummer_falsch = new JDialog();
+                                            end_koffer_neu_nummer_falsch.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                            end_koffer_neu_nummer_falsch.setLocation(800, 100);
+                                            JPanel panel_end_koffer_neu_nummer_falsch = new JPanel();
+                                            end_koffer_neu_nummer_falsch.add(panel_end_koffer_neu_nummer_falsch);
+                                            JLabel lbl_end_koffer_neu = new JLabel("Bitte nur natürliche Zahlen eintragen");
+                                            lbl_end_koffer_neu.setVisible(true);
+                                            panel_end_koffer_neu_nummer_falsch.add(lbl_end_koffer_neu);
+                                            end_koffer_neu_nummer_falsch.pack();
+                                            end_koffer_neu_nummer_falsch.setVisible(true);
+
+
+                                        } else {
+                                            //Wenn Koffernummer schon vorhanden, Pop-Up
+                                            boolean nummer_da = false;
+                                            for (int i = 0; i < reservierungsliste.gibKofferListe().length; i++) {
+                                                int neue_Nummer = Integer.parseInt(tf_koffer_neu.getText());
+                                                if (neue_Nummer == reservierungsliste.gibKofferListe()[i].gibNummer()) {
+                                                    JDialog end_koffer_neu = new JDialog();
+                                                    end_koffer_neu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end_koffer_neu.setLocation(800, 100);
+                                                    JPanel panel_end_koffer_neu = new JPanel();
+                                                    end_koffer_neu.add(panel_end_koffer_neu);
+                                                    JLabel lbl_end_koffer_neu = new JLabel("Koffer mit der Nummer " + tf_koffer_neu.getText() + " existiert bereits.");
+                                                    lbl_end_koffer_neu.setVisible(true);
+                                                    panel_end_koffer_neu.add(lbl_end_koffer_neu);
+                                                    end_koffer_neu.pack();
+                                                    end_koffer_neu.setVisible(true);
+                                                    nummer_da = true;
+                                                }
+                                            }
+                                            if (nummer_da == false) {
+                                                try {
+                                                    reservierungsliste.neuerKoffer(Integer.parseInt(tf_koffer_neu.getText()));
+                                                    JDialog end_koffer_neu = new JDialog();
+                                                    end_koffer_neu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                    end_koffer_neu.setLocation(800, 100);
+                                                    JPanel panel_end_koffer_neu = new JPanel();
+                                                    end_koffer_neu.add(panel_end_koffer_neu);
+                                                    JLabel lbl_end_koffer_neu = new JLabel("Koffer " + tf_koffer_neu.getText() + " erstellt");
+                                                    lbl_end_koffer_neu.setVisible(true);
+                                                    panel_end_koffer_neu.add(lbl_end_koffer_neu);
+                                                    end_koffer_neu.pack();
+                                                    end_koffer_neu.setVisible(true);
+                                                } catch (IOException ex) {
+                                                    throw new RuntimeException(ex);
+                                                }
+
                                             }
                                         }
+                                        //Neuer Koffer Fenster verschrotten, Admin-Fenster wieder sichtbar machen
+                                        dialog_koffer_neu.dispose();
+                                        dialog_menu_admin.setVisible(true);
                                     }
-                                    //Neuer Koffer Fenster verschrotten, Admin-Fenster wieder sichtbar machen
-                                    dialog_koffer_neu.dispose();
-                                    dialog_menu_admin.setVisible(true);
+
                                 }
+
 
                             });
                         }
+
                     });
                     koffer_weg.addActionListener(new ActionListener() {
                         @Override
