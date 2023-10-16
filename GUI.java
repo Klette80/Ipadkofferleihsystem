@@ -923,10 +923,11 @@ public class GUI {
                                                 panel_end_koffer_neu.add(lbl_end_koffer_neu);
                                                 end_koffer_neu.pack();
                                                 end_koffer_neu.setVisible(true);
-                                            } catch (IOException ex) {
-                                                throw new RuntimeException(ex);
                                             }
 
+                                            catch (IOException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
                                         }
                                     }
                                     //Neuer Koffer Fenster verschrotten, Admin-Fenster wieder sichtbar machen
