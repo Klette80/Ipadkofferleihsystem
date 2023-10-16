@@ -15,8 +15,10 @@ public class Kalender {
 
     public Kalender(JDialog parent, Reservierungsliste reservierungsliste, Koffer koffer) {
         d = new JDialog();
+        d.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
         d.setModal(true);
-        String[] header = { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" };
+        String[] header = { "So", "Mo", "Di", "Mi", "Do", "Fr", "Sa" };
         JPanel p2 = new JPanel(new GridLayout(1, 3));
         JButton previous = new JButton("<<");
         previous.addActionListener(new ActionListener() {
@@ -91,29 +93,36 @@ public class Kalender {
             button[i].setText("");
             button[i].setBackground(Color.white);
         }
+        boolean reserviert=false;
         for (int i = 6 + dayOfWeek, day = 1; day <= daysInMonth; i++, day++) {
+            int count =0;
             button[i].setText("" + day);
             button[i].setBackground(Color.white);
-            //Datum abgleichen und Feld rot hinterlegen
+            //Datum abgleichen und Feld rot hinterlegen, wenn alle Stunden an einem Tag schon reserviert sind
+
             int jahr=year;
             int monat=month+1;
             int tag=day;
             LocalDate datum_1 = LocalDate.of(jahr, monat, tag);
 
-           /* if (reservierungsliste.istReserviert(datum_1, koffer)==true) {
-                System.out.println("Kalender: Reservierung gefunden");
-                button[i].setBackground(Color.red);
-            }
-*/
+           for(int j=0; j<9;j++) {
+               if (reservierungsliste.istReserviert(datum_1, j, koffer) == true) {
+                   count = count+1;
+                     }
+               if (count > 8) {
+                  button[i].setBackground(Color.red);
+               }
+           }
+
         }
 
         l.setText(sdf.format(cal.getTime()));
-        d.setTitle("Date Picker");
+        d.setTitle("Datum wählen");
     }
 
     public String setPickedDate() {
         if (day.equals("")){
-            System.out.println("Kalender: day ist Null");
+            //System.out.println("Kalender: day ist Null");
             return day;}
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
                 "dd-MM-yyyy");

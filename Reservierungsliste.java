@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class Reservierungsliste implements Serializable {
     private static final long serialVersionUID = 7640516691716884831L;
     private Knoten root;
-    public Koffer[] kofferliste;
-    public String gewaehltesDatum;
+    private Koffer[] kofferliste;
+
 
     public Reservierungsliste() throws IOException {
         root = new Endknoten();
@@ -25,8 +25,6 @@ public class Reservierungsliste implements Serializable {
             Reservierung reservierung = new Reservierung(datum, stunde, name, koffer);
             root = root.reservieren(reservierung);
             speichern();
-        } else {
-            System.out.println("An diesem Datum liegt schon eine Reservierung vor");
         }
     }
 
@@ -36,10 +34,10 @@ public class Reservierungsliste implements Serializable {
         if (root.gibDaten().gibDatum() == datum && root.gibDaten().gibStunde() == stunde) {
             System.out.println("Die Reservierung von " + root.gibDaten().gibName() + " am " + root.gibDaten().gibDatum() + " in Stunde " + root.gibDaten().gibStunde() + " wurde gelöscht.");
             root = root.gibNaechster();
-            speichern();
-        } else {
+            } else {
             root.stornieren(datum, stunde, koffer);
         }
+        speichern();
     }
 
     public boolean istReserviert(LocalDate datum, int stunde, Koffer koffer) {
@@ -61,7 +59,7 @@ public class Reservierungsliste implements Serializable {
             System.out.println("Sie haben keine Reservierungen.");
             return null;
         } else {
-            //Array mit der Anzahl der gefundenen Reservierugnen anlegen
+            //Array mit der Anzahl der gefundenen Reservierungen anlegen
             Reservierung reservierungen[] = new Reservierung[anzahl];
             Knoten aktuellerKnoten = root;
             int einfuegeposition = 0;
@@ -188,4 +186,7 @@ public class Reservierungsliste implements Serializable {
         Main.ks.speichern(Main.reservierungsliste);
     }
 
+    public Koffer[] gibKofferListe(){
+        return kofferliste;
+    }
 }

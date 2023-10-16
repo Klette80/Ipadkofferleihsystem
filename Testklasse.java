@@ -5,14 +5,17 @@ import java.time.chrono.ChronoLocalDate;
 import java.time.LocalDate;
 
 public class Testklasse {
+    /*
     public LocalDate datum1;
     public LocalDate datum2;
     public LocalDate datum3;
 
     //public static LocalDateTime of(int year, int month, int dayOfMonth, int hour, int minute)
     public LocalDate datum4;
+    */
 
     public Testklasse() throws IOException {
+        /*
         Main.benutzerliste.benutzerAnmelden("admin", "admin");
         //Main.benutzerliste.benutzerEinfuegen("Kim", "Hübner", "hüki", "passwort");
         //Main.benutzerliste.benutzerEinfuegen("Stefan", "Hofmann", "host", "passwort");
@@ -21,12 +24,12 @@ public class Testklasse {
         datum1 = LocalDate.of(2023, 9, 5);
         datum2 = LocalDate.of(2023, 9, 6);
 
-        Main.reservierungsliste.reservieren(datum2,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
-        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum2,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
-        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum1,1, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
-        Main.reservierungsliste.reservieren(datum1,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.kofferliste[0]);
+        Main.reservierungsliste.reservieren(datum1,2, Main.benutzerliste.gibNameAngemeldeterBenutzer(),Main.reservierungsliste.gibKofferListe()[0]);
 
 
 

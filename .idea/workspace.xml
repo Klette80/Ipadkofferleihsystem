@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde.">
+    <list default="true" id="58e6098e-eaaf-49bf-beab-2b15aa5ef779" name="Changes" comment="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GespeicherteListe.ser" beforeDir="false" afterPath="$PROJECT_DIR$/GespeicherteListe.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Benutzerliste.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Klassendiagramm.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Reservierungsliste.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kalender.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Kalender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ipadkofferleihsystem/Kalender.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +17,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -63,7 +68,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/2022-24-Informatikstudium/03-Softwaresysteme_Softwareentwicklungspraktikum/Modul 3.2_ Softwareentwicklungspraktikum/Ipadkofferleihsystem&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RunManager">
@@ -160,7 +166,35 @@
       <option name="project" value="LOCAL" />
       <updated>1690810507176</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="gewahltesDatum nicht mehr privat">
+      <created>1695625457483</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1695625457483</updated>
+    </task>
+    <task id="LOCAL-00012" summary="gewahltesDatum raus aus reservierungsliste">
+      <created>1695625623184</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1695625623184</updated>
+    </task>
+    <task id="LOCAL-00013" summary="kofferliste jetzt privat">
+      <created>1695627013522</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695627013522</updated>
+    </task>
+    <task id="LOCAL-00014" summary="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst">
+      <created>1696349982375</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696349982375</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,7 +234,11 @@
     <MESSAGE value="Implementierung der Speicherfunktion für die Benutzerliste." />
     <MESSAGE value="Verschlankung des Exception-Handlings" />
     <MESSAGE value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
-    <option name="LAST_COMMIT_MESSAGE" value="Logik der Benutzeranmeldung angepasst, indem die equals-Methode in Benutzer.java überschrieben wurde." />
+    <MESSAGE value="gewahltesDatum nicht mehr privat" />
+    <MESSAGE value="gewahltesDatum raus aus reservierungsliste" />
+    <MESSAGE value="kofferliste jetzt privat" />
+    <MESSAGE value="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI jetzt hübscher, zurück-Buttons, viele Probleme gelöst" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ipadkofferleihsystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1690880443338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
