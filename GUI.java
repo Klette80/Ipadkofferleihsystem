@@ -1040,23 +1040,37 @@ public class GUI {
                                 btn_koffer_weg.addActionListener(new ActionListener() {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
-                                        try {
-                                            reservierungsliste.kofferEntfernen(koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()]);
-                                            JDialog end_koffer_weg = new JDialog();
-                                            end_koffer_weg.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                                            end_koffer_weg.setLocation(800, 100);
-                                            JPanel panel_end_koffer_weg = new JPanel();
-                                            end_koffer_weg.add(panel_end_koffer_weg);
-                                            JLabel lbl_end_koffer_weg = new JLabel("Koffer "+koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()]+" wurde entfernt.");
-                                            lbl_end_koffer_weg.setVisible(true);
-                                            panel_end_koffer_weg.add(lbl_end_koffer_weg);
-                                            end_koffer_weg.pack();
-                                            end_koffer_weg.setVisible(true);
+                                        //Wenn der Koffer der einzige in der Liste ist, Pop Up Fenster
+                                        if (reservierungsliste.gibKofferListe().length == 1) {
+                                            JDialog end_koffer_weg_list = new JDialog();
+                                            end_koffer_weg_list.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                            end_koffer_weg_list.setLocation(800, 100);
+                                            JPanel panel_end_koffer_weg_list = new JPanel();
+                                            end_koffer_weg_list.add(panel_end_koffer_weg_list);
+                                            JLabel lbl_end_koffer_weg_list = new JLabel("Der Koffer kann nicht gelöscht werden. In der Auswahlliste muss mindestens ein Koffer enthalten sein.");
+                                            lbl_end_koffer_weg_list.setVisible(true);
+                                            panel_end_koffer_weg_list.add(lbl_end_koffer_weg_list);
+                                            end_koffer_weg_list.pack();
+                                            end_koffer_weg_list.setVisible(true);
+                                        } else{
+                                            try {
+                                                reservierungsliste.kofferEntfernen(koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()]);
+                                                JDialog end_koffer_weg = new JDialog();
+                                                end_koffer_weg.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                                                end_koffer_weg.setLocation(800, 100);
+                                                JPanel panel_end_koffer_weg = new JPanel();
+                                                end_koffer_weg.add(panel_end_koffer_weg);
+                                                JLabel lbl_end_koffer_weg = new JLabel("Koffer " + koffer_nummer_auswahl[cb_koffer_weg.getSelectedIndex()] + " wurde entfernt.");
+                                                lbl_end_koffer_weg.setVisible(true);
+                                                panel_end_koffer_weg.add(lbl_end_koffer_weg);
+                                                end_koffer_weg.pack();
+                                                end_koffer_weg.setVisible(true);
 
 
-                                        } catch (IOException ex) {
-                                            throw new RuntimeException(ex);
-                                        }
+                                            } catch (IOException ex) {
+                                                throw new RuntimeException(ex);
+                                            }
+                                    }
                                         //Koffer löschen Fenster verschrotten, Admin-Menu wieder sichtbar machen
                                         dialog_koffer_weg.dispose();
                                         dialog_menu_admin.setVisible(true);
