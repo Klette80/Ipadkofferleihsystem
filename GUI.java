@@ -724,8 +724,15 @@ public class GUI {
                             //String aus Benntzerliste in Array umwandeln
                             String[] split = benutzerliste.benutzerlisteAusgeben().split("-x-");
                             String[] split_ohne_admin = new String[split.length - 1];
-                            for (int i = 0; i < split_ohne_admin.length; i++) {
-                                split_ohne_admin[i] = split[i + 1];
+
+                            for (int i = 0, j=0; i < split.length; i++) {
+                                if(split[i].equals("admin")==true){
+                                   // split_ohne_admin[i]=split[j+1];
+                                }
+                                else {
+                                    split_ohne_admin[j] = split[i];
+                                   j++;
+                                }
                             }
 
 
