@@ -1,7 +1,5 @@
 import java.io.IOException;
 import java.io.Serializable;
-import java.lang.reflect.Array;
-//import java.util.Date;
 import java.time.LocalDate;
 
 public class Reservierungsliste implements Serializable {

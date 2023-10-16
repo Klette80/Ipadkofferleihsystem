@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.Serializable;
-//import java.util.Date;
 import java.time.LocalDate;
 
 public class Endknoten implements Knoten, Serializable
