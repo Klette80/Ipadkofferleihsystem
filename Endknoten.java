@@ -34,4 +34,9 @@ public class Endknoten implements Knoten, Serializable
         return 0;
     }
 
+    @Override
+    public void setzeNaechster(Knoten naechster) {
+
+    }
+
 }

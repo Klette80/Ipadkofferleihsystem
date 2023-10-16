@@ -163,9 +163,34 @@ public class Reservierungsliste implements Serializable {
                 }
                 //Mache das die neue Kofferliste zur Kofferliste
                 kofferliste = neueKofferliste;
+                entferneReservierungenMitKoffer(nummer);
                 speichern();
             } else {
                 System.out.println("Der Koffer mit der Nummer " + nummer + " existiert nicht.");
+            }
+        }
+    }
+
+    //Die Methode wird genutzt, um alle Reservierungen, die mit einem gelöschten Kofferzusammenhängen, ebenfalls zu löschen.
+    private void entferneReservierungenMitKoffer(int kofferNummer){
+    //Überprüfen und Entfernen der Wurzel, falls notwendig. Die Entefernung der Wurzel geht mit der Verzeigerung von root auf
+    //den Nachfolger einher.
+        if(root.gibDaten()!=null&&root.gibDaten().gibKoffer().gibNummer()==kofferNummer){
+            //Verzeigerung von root aufnaechster.
+            root=root.gibNaechster();
+        }
+
+        //Durchlaufen der verbleibenden Knoten und Entfernen der entsprechenden Knoten
+        Knoten aktuellerKnoten = root;
+        //Solange naechster nicht null:
+        while(aktuellerKnoten.gibNaechster()!=null){
+            //Falls die Koffernummer mit Koffernummer von naechster übereinstimmt...
+            if(aktuellerKnoten.gibNaechster().gibDaten().gibKoffer().gibNummer()==kofferNummer){
+            //...verzeigere neu,indem du naechster des aktuellen Knotens auf naechster des übernächsten Knotens setzt:
+                aktuellerKnoten.setzeNaechster(aktuellerKnoten.gibNaechster().gibNaechster());
+            }else{
+            //Setze den aktuellen Knoten auf naechster, um Durchlauf fortzusetzen.
+                aktuellerKnoten=aktuellerKnoten.gibNaechster();
             }
         }
     }

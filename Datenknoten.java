@@ -67,6 +67,11 @@ public class Datenknoten implements Knoten, Serializable {
         return i + naechster.reservierungenBenutzerAnzeigen(name);
     }
 
+    @Override
+    public void setzeNaechster(Knoten naechster) {
+        this.naechster = naechster;
+    }
+
     public Reservierung gibDaten() {
         return daten;
     }
