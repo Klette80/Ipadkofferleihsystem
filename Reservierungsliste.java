@@ -183,7 +183,7 @@ public class Reservierungsliste implements Serializable {
         //Durchlaufen der verbleibenden Knoten und Entfernen der entsprechenden Knoten
         Knoten aktuellerKnoten = root;
         //Solange naechster nicht null:
-        while(aktuellerKnoten.gibNaechster()!=null){
+        while(aktuellerKnoten.gibNaechster()!=null && aktuellerKnoten.gibNaechster().gibDaten() != null){
             //Falls die Koffernummer mit Koffernummer von naechster übereinstimmt...
             if(aktuellerKnoten.gibNaechster().gibDaten().gibKoffer().gibNummer()==kofferNummer){
             //...verzeigere neu,indem du naechster des aktuellen Knotens auf naechster des übernächsten Knotens setzt:
