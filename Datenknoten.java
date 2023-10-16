@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.Serializable;
-//import java.util.Date;
 import java.time.LocalDate;
 
 public class Datenknoten implements Knoten, Serializable {
@@ -66,6 +65,11 @@ public class Datenknoten implements Knoten, Serializable {
             i = 1;
         }
         return i + naechster.reservierungenBenutzerAnzeigen(name);
+    }
+
+    @Override
+    public void setzeNaechster(Knoten naechster) {
+        this.naechster = naechster;
     }
 
     public Reservierung gibDaten() {

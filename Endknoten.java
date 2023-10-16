@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.Serializable;
-//import java.util.Date;
 import java.time.LocalDate;
 
 public class Endknoten implements Knoten, Serializable
@@ -33,6 +32,11 @@ public class Endknoten implements Knoten, Serializable
 
     public int reservierungenBenutzerAnzeigen(String name){
         return 0;
+    }
+
+    @Override
+    public void setzeNaechster(Knoten naechster) {
+
     }
 
 }

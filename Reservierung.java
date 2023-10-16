@@ -1,5 +1,4 @@
 import java.io.Serializable;
-//import java.util.Date;
 import java.time.LocalDate;
 
 public class Reservierung implements Serializable
