@@ -9,3 +9,11 @@ Diagrama sin título.drawio
 *.iml
 target/
 workspace.xml
+*.bak
+*.swp
+*.swo
+*.tmp
+*.temp
+*.log
+*.cache
+*.DS_Store
