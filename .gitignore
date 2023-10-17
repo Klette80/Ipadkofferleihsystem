@@ -1,2 +1,6 @@
 .idea/
 TESTGUI.java
+GespeicherteListe.ser
+BenutzerListe.ser
+lib/
+out/
