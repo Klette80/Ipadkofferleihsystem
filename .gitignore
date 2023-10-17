@@ -1,7 +1,10 @@
 .idea/
 TESTGUI.java
-GespeicherteListe.ser
-BenutzerListe.ser
+*.ser
 lib/
 out/
 Diagrama sin título.drawio
+*.log
+*.class
+*.iml
+target/
